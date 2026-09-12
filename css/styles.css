@@ -42,3 +42,35 @@ header h1{
 header p{
     margin-bottom: 20px;
 }
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav a{
+    color: var(--color-blanco);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--color-acento);
+}
+
+main {
+    max-width:  12000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+section {
+
+    margin-bottom: 60px;
+
+}
+
+section h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
