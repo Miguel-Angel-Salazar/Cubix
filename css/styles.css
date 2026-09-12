@@ -106,3 +106,54 @@ section h2 {
         padding: 30px 15px;
     }
 }
+
+#inicio {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#inicio h2 {
+    font-size: 2.5 rem;
+}
+
+#inicio p{
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#cubos {
+    text-align: center;
+}
+
+.catalogo{
+    margin-top: 30px;
+}
+
+#blog {
+    text-align: center;
+}
+
+#blog p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#metodos {
+    text-align: center;
+}
+
+#tienda {
+    text-align: center;
+}
+
+#contacto {
+    text-align: center;
+}
+
+footer {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 25px;
+}
+
