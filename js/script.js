@@ -50,18 +50,18 @@ const productos = [
         descripcion: "Cubo magnético de alta gama con peso ultra liviano y giro profesional para speedcubers."
     },
     {
-        nombre: "Lubricante para cubos 10ml",
+        nombre: "Lubricante MoYu Lube V1 10ml",
         categoria: "accesorios",
         precio: "$18.000 COP",
-        imagen: "img/cubo-3x3.jpg",
-        descripcion: "Ayuda a mantener la suavidad interna del mecanismo y prolonga la vida útil del cubo."
+        imagen: "img/lubricante.jpg",
+        descripcion: "Lubricante oficial de silicona marca MoYu para suavizar giros y alargar la vida útil del cubo."
     },
     {
-        nombre: "Timer y cronómetro para cubos",
+        nombre: "Timer digital de velocidad StackMat",
         categoria: "accesorios",
         precio: "$68.000 COP",
-        imagen: "img/tiempos.jpg",
-        descripcion: "Cronómetro de precisión con sensores para registrar tus tiempos oficiales de resolución."
+        imagen: "img/timer.jpg",
+        descripcion: "Cronómetro de competición con almohadillas táctiles para registrar tus marcas oficiales."
     }
 ];
 
