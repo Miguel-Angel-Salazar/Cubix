@@ -55,36 +55,36 @@ Lo más difícil fue hacer que el modo oscuro se mantuviera funcionando en las 6
 ## Capturas de pantalla
 
 ### Vista en Computador (Desktop)
-![CUBIX Desktop]
 
-<img width="921" height="518" alt="image" src="https://github.com/user-attachments/assets/c77bdd4d-fd5f-4362-b199-45348176db51" />
 
-<img width="921" height="518" alt="image" src="https://github.com/user-attachments/assets/d37e7c58-a1ff-43cb-8203-fad41bf4ef6d" />
+![CUBIX Desktop 1](https://github.com/user-attachments/assets/c77bdd4d-fd5f-4362-b199-45348176db51)
 
-<img width="921" height="519" alt="image" src="https://github.com/user-attachments/assets/7bf1d322-c087-4a27-981a-3e989f7290b4" />
+![CUBIX Desktop 2](https://github.com/user-attachments/assets/d37e7c58-a1ff-43cb-8203-fad41bf4ef6d)
 
-<img width="921" height="520" alt="image" src="https://github.com/user-attachments/assets/30aed3d0-4166-4fc7-b44d-7729515fb8e3" />
+![CUBIX Desktop 3](https://github.com/user-attachments/assets/7bf1d322-c087-4a27-981a-3e989f7290b4)
 
-<img width="921" height="518" alt="image" src="https://github.com/user-attachments/assets/c8e6da34-acf2-4e0b-941e-f57fafd61904" />
+![CUBIX Desktop 4](https://github.com/user-attachments/assets/30aed3d0-4166-4fc7-b44d-7729515fb8e3)
+
+![CUBIX Desktop 5](https://github.com/user-attachments/assets/c8e6da34-acf2-4e0b-941e-f57fafd61904)
 
 ### Vista en Celular (Mobile)
-![CUBIX Mobile]
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/757792a7-3acb-4180-9ca4-fc5f3950811d" />
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/6902d779-c498-43fc-8e46-63de923cdb03" />
+![CUBIX Mobile 1](https://github.com/user-attachments/assets/757792a7-3acb-4180-9ca4-fc5f3950811d)
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/79fb1d70-6ed0-46d9-bcca-6efe9b6d24a3" />
+![CUBIX Mobile 2](https://github.com/user-attachments/assets/6902d779-c498-43fc-8e46-63de923cdb03)
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/67168a77-d3af-4b02-b98f-acab7160aaf1" />
+![CUBIX Mobile 3](https://github.com/user-attachments/assets/79fb1d70-6ed0-46d9-bcca-6efe9b6d24a3)
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/567faf8b-d411-4f1c-b0db-00942eef9d1e" />
+![CUBIX Mobile 4](https://github.com/user-attachments/assets/67168a77-d3af-4b02-b98f-acab7160aaf1)
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/9494ce85-f2ef-4163-8ad5-f96ca0e017ea" />
+![CUBIX Mobile 5](https://github.com/user-attachments/assets/567faf8b-d411-4f1c-b0db-00942eef9d1e)
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/2782c524-33f7-4347-b133-2624bf62a17c" />
+![CUBIX Mobile 6](https://github.com/user-attachments/assets/9494ce85-f2ef-4163-8ad5-f96ca0e017ea)
 
-<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/14d1068d-7ad3-4cad-97fb-059c81828bd2" />
+![CUBIX Mobile 7](https://github.com/user-attachments/assets/2782c524-33f7-4347-b133-2624bf62a17c)
+
+![CUBIX Mobile 8](https://github.com/user-attachments/assets/14d1068d-7ad3-4cad-97fb-059c81828bd2)
 
 
 ## Cómo abrir el proyecto
