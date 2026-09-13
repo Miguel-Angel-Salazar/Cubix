@@ -68,23 +68,23 @@ Lo más difícil fue hacer que el modo oscuro se mantuviera funcionando en las 6
 <img width="921" height="518" alt="image" src="https://github.com/user-attachments/assets/c8e6da34-acf2-4e0b-941e-f57fafd61904" />
 
 ### Vista en Celular (Mobile)
-![CUBIX Mobile](img/cubo-3x3.jpg)
+![CUBIX Mobile]
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/757792a7-3acb-4180-9ca4-fc5f3950811d" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/757792a7-3acb-4180-9ca4-fc5f3950811d" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/6902d779-c498-43fc-8e46-63de923cdb03" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/6902d779-c498-43fc-8e46-63de923cdb03" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/79fb1d70-6ed0-46d9-bcca-6efe9b6d24a3" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/79fb1d70-6ed0-46d9-bcca-6efe9b6d24a3" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/67168a77-d3af-4b02-b98f-acab7160aaf1" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/67168a77-d3af-4b02-b98f-acab7160aaf1" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/567faf8b-d411-4f1c-b0db-00942eef9d1e" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/567faf8b-d411-4f1c-b0db-00942eef9d1e" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/9494ce85-f2ef-4163-8ad5-f96ca0e017ea" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/9494ce85-f2ef-4163-8ad5-f96ca0e017ea" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/2782c524-33f7-4347-b133-2624bf62a17c" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/2782c524-33f7-4347-b133-2624bf62a17c" />
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/14d1068d-7ad3-4cad-97fb-059c81828bd2" />
+<img width="720" height="1100" alt="image" src="https://github.com/user-attachments/assets/14d1068d-7ad3-4cad-97fb-059c81828bd2" />
 
 
 ## Cómo abrir el proyecto
