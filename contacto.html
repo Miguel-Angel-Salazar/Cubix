@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CUBIX | Contacto</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>CUBIX</h1>
+        <p>El mundo del cubo de Rubik</p>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cubos.html">Cubos</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="metodos.html">Métodos</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="pagina">
+            <h2>Contacto</h2>
+
+            <p>
+                ¿Tienes alguna pregunta o sugerencia?
+                Escríbenos y estaremos atentos.
+            </p>
+
+            <form id="formulario-contacto" class="formulario">
+
+                <label for="nombre">Nombre</label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Escribe tu nombre"
+                >
+
+                <span id="error-nombre" class="error"></span>
+
+
+                <label for="correo">Correo electrónico</label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="ejemplo@correo.com"
+                >
+
+                <span id="error-correo" class="error"></span>
+
+
+                <label for="mensaje">Mensaje</label>
+
+                <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    placeholder="Escribe tu mensaje"
+                ></textarea>
+
+                <span id="error-mensaje" class="error"></span>
+
+
+                <button type="submit">
+                    Enviar mensaje
+                </button>
+
+                <p id="mensaje-exito" class="mensaje-exito"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CUBIX. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
+
