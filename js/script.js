@@ -139,30 +139,41 @@ if (formulario) {
 
 const botonTema = document.getElementById("boton-tema");
 
-if (botonTema) {
+// Revisar si ya había un tema guardado
+const temaGuardado = localStorage.getItem("tema");
 
+if (temaGuardado === "oscuro") {
+    document.body.classList.add("modo-oscuro");
+}
+
+// Función para actualizar el texto del botón
+function actualizarBotonTema() {
+    if (!botonTema) {
+        return;
+    }
+
+    if (document.body.classList.contains("modo-oscuro")) {
+        botonTema.textContent = "☀️ Modo claro";
+    } else {
+        botonTema.textContent = "🌙 Modo oscuro";
+    }
+}
+
+actualizarBotonTema();
+
+// Cambiar el tema cuando se presiona el botón
+if (botonTema) {
     botonTema.addEventListener("click", function() {
 
         document.body.classList.toggle("modo-oscuro");
 
         if (document.body.classList.contains("modo-oscuro")) {
-
             localStorage.setItem("tema", "oscuro");
-            botonTema.textContent = "☀️ Modo claro";
-
         } else {
-
             localStorage.setItem("tema", "claro");
-            botonTema.textContent = "🌙 Modo oscuro";
         }
+
+        actualizarBotonTema();
     });
-
-
-    const temaGuardado = localStorage.getItem("tema");
-
-    if (temaGuardado === "oscuro") {
-
-        document.body.classList.add("modo-oscuro");
-        botonTema.textContent = "☀️ Modo claro";
-    }
 }
+
