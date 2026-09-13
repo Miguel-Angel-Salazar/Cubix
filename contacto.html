@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ponte en contacto con el equipo de CUBIX. Asesoría sobre cubos de Rubik, métodos de resolución y pedidos personalizados.">
-    <title>CUBIX | Contacto & Asesoría</title>
+    <title>CUBIX | Contacto</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -27,7 +26,7 @@
                 <span class="linea"></span>
             </button>
 
-            <nav id="navegacion-principal" class="nav-principal" aria-label="Navegación principal">
+            <nav id="navegacion-principal" class="nav-principal">
                 <ul class="menu-lista">
                     <li><a href="index.html" class="enlace-nav">Inicio</a></li>
                     <li><a href="cubos.html" class="enlace-nav">Cubos</a></li>
@@ -37,10 +36,7 @@
                     <li><a href="contacto.html" class="enlace-nav activo">Contacto</a></li>
                 </ul>
                 <div class="acciones-header">
-                    <button id="boton-tema" class="boton-tema" aria-label="Alternar modo oscuro">
-                        <span id="icono-tema" aria-hidden="true">🌙</span>
-                        <span id="texto-tema">Modo oscuro</span>
-                    </button>
+                    <button id="boton-tema" class="boton-tema">🌙 Modo oscuro</button>
                 </div>
             </nav>
         </div>
@@ -49,138 +45,59 @@
     <main>
 
         <section class="pagina-cabecera">
-            <h2 class="titulo-seccion">Contáctanos y Resuelve tus Dudas</h2>
+            <h2 class="titulo-seccion">Contacto</h2>
             <p class="descripcion-seccion">
-                ¿Buscas tu primer cubo de velocidad, necesitas recomendaciones sobre lubricación o quieres asesoría sobre algoritmos? Escríbenos y te responderemos a la brevedad.
+                ¿Tienes alguna pregunta, sugerencia o necesitas asesoría sobre qué cubo comprar? Escríbenos mediante el siguiente formulario y te responderemos.
             </p>
-        </section>
 
-        <section class="contenedor-contacto" aria-label="Sección de contacto">
+            <form id="formulario-contacto" class="formulario" action="https://formspree.io/f/mqaejnbk" method="POST" novalidate>
 
-            <!-- Columna lateral: Información directa de contacto -->
-            <div class="info-contacto">
-                <h3>Información de Contacto</h3>
-                <p class="descripcion-seccion">
-                    Estamos disponibles para ayudarte a elegir el puzzle ideal o mejorar tus tiempos de resolución.
-                </p>
-
-                <div class="item-contacto">
-                    <span class="item-contacto-icono" aria-hidden="true">📍</span>
-                    <div class="item-contacto-texto">
-                        <strong>Ubicación</strong>
-                        <span>Medellín, Colombia · Envíos a todo el país</span>
-                    </div>
+                <div class="campo-grupo">
+                    <label for="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Escribe tu nombre"
+                    >
+                    <span id="error-nombre" class="error"></span>
                 </div>
 
-                <div class="item-contacto">
-                    <span class="item-contacto-icono" aria-hidden="true">✉️</span>
-                    <div class="item-contacto-texto">
-                        <strong>Correo Electrónico</strong>
-                        <span>contacto.cubix@gmail.com</span>
-                    </div>
+                <div class="campo-grupo">
+                    <label for="correo">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="ejemplo@correo.com"
+                    >
+                    <span id="error-correo" class="error"></span>
                 </div>
 
-                <div class="item-contacto">
-                    <span class="item-contacto-icono" aria-hidden="true">⏱️</span>
-                    <div class="item-contacto-texto">
-                        <strong>Horario de Atención</strong>
-                        <span>Lunes a Sábado: 8:00 a.m. - 7:00 p.m.</span>
-                    </div>
+                <div class="campo-grupo">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        placeholder="Escribe tu mensaje (mínimo 10 caracteres)"
+                    ></textarea>
+                    <span id="error-mensaje" class="error"></span>
                 </div>
 
-                <div class="item-contacto">
-                    <span class="item-contacto-icono" aria-hidden="true">⚡</span>
-                    <div class="item-contacto-texto">
-                        <strong>Comunidad</strong>
-                        <span>Torneos locales, quedadas y talleres de speedcubing</span>
-                    </div>
-                </div>
-            </div>
+                <button type="submit" id="btn-enviar" class="boton boton-primario">
+                    Enviar mensaje
+                </button>
 
-            <!-- Columna principal: Formulario con validación y envío real -->
-            <div class="formulario-contenedor">
-                <form id="formulario-contacto" class="formulario" action="https://formspree.io/f/mqaejnbk" method="POST" novalidate>
+                <p id="mensaje-exito" class="mensaje-exito"></p>
 
-                    <div class="campo-grupo">
-                        <label for="nombre">Nombre completo *</label>
-                        <input
-                            type="text"
-                            id="nombre"
-                            name="nombre"
-                            placeholder="Ej. Juan Salazar"
-                            required
-                            autocomplete="name"
-                        >
-                        <span id="error-nombre" class="error" aria-live="polite"></span>
-                    </div>
-
-                    <div class="campo-grupo">
-                        <label for="correo">Correo electrónico *</label>
-                        <input
-                            type="email"
-                            id="correo"
-                            name="correo"
-                            placeholder="nombre@ejemplo.com"
-                            required
-                            autocomplete="email"
-                        >
-                        <span id="error-correo" class="error" aria-live="polite"></span>
-                    </div>
-
-                    <div class="campo-grupo">
-                        <label for="asunto">Motivo de contacto *</label>
-                        <select id="asunto" name="asunto" required>
-                            <option value="">Selecciona un motivo...</option>
-                            <option value="asesoria-compra">Asesoría para comprar mi primer cubo</option>
-                            <option value="dudas-metodos">Dudas sobre métodos (CFOP / Roux / ZZ)</option>
-                            <option value="pedido-tienda">Consulta sobre disponibilidad o pedido</option>
-                            <option value="sugerencia">Sugerencia para el blog o la web</option>
-                            <option value="otro">Otro motivo</option>
-                        </select>
-                        <span id="error-asunto" class="error" aria-live="polite"></span>
-                    </div>
-
-                    <div class="campo-grupo">
-                        <label for="mensaje">Mensaje o consulta *</label>
-                        <textarea
-                            id="mensaje"
-                            name="mensaje"
-                            placeholder="Describe tu duda o consulta en detalle (mínimo 15 caracteres)..."
-                            required
-                        ></textarea>
-                        <span id="error-mensaje" class="error" aria-live="polite"></span>
-                    </div>
-
-                    <button type="submit" id="btn-enviar" class="boton boton-primario">
-                        <span id="btn-enviar-icono" aria-hidden="true">✉️</span>
-                        <span id="btn-enviar-texto">Enviar mensaje</span>
-                    </button>
-
-                    <!-- Mensajes de respuesta del servidor o validación -->
-                    <div id="mensaje-estado" class="mensaje-estado" role="alert"></div>
-
-                </form>
-            </div>
-
+            </form>
         </section>
 
     </main>
 
     <footer>
         <div class="contenedor-footer">
-            <div class="marca">
-                <span class="logo-texto">CUBIX</span>
-                <p class="lema-sitio">Pasión y velocidad en cada giro</p>
-            </div>
-            <nav class="footer-nav" aria-label="Enlaces rápidos de pie de página">
-                <a href="index.html">Inicio</a>
-                <a href="cubos.html">Cubos</a>
-                <a href="blog.html">Blog</a>
-                <a href="metodos.html">Métodos</a>
-                <a href="tienda.html">Tienda</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-            <p class="footer-creditos">&copy; 2026 <strong>CUBIX</strong> — Desarrollado con HTML, CSS y JS puro para Desarrollo Web.</p>
+            <p>&copy; 2026 CUBIX. Todos los derechos reservados.</p>
         </div>
     </footer>
 

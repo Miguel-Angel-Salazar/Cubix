@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aprende los mejores métodos de resolución del cubo de Rubik: Principiante, CFOP (Fridrich), Roux y ZZ. Guía paso a paso para speedcubing.">
-    <title>CUBIX | Métodos de Resolución</title>
+    <title>CUBIX | Métodos</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -27,7 +26,7 @@
                 <span class="linea"></span>
             </button>
 
-            <nav id="navegacion-principal" class="nav-principal" aria-label="Navegación principal">
+            <nav id="navegacion-principal" class="nav-principal">
                 <ul class="menu-lista">
                     <li><a href="index.html" class="enlace-nav">Inicio</a></li>
                     <li><a href="cubos.html" class="enlace-nav">Cubos</a></li>
@@ -37,10 +36,7 @@
                     <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
                 </ul>
                 <div class="acciones-header">
-                    <button id="boton-tema" class="boton-tema" aria-label="Alternar modo oscuro">
-                        <span id="icono-tema" aria-hidden="true">🌙</span>
-                        <span id="texto-tema">Modo oscuro</span>
-                    </button>
+                    <button id="boton-tema" class="boton-tema">🌙 Modo oscuro</button>
                 </div>
             </nav>
         </div>
@@ -49,32 +45,30 @@
     <main>
 
         <section class="pagina-cabecera">
-            <h2 class="titulo-seccion">Métodos de Resolución</h2>
+            <h2 class="titulo-seccion">Métodos de resolución</h2>
             <p class="descripcion-seccion">
-                El camino desde armar tu primer cubo hasta competir en torneos oficiales. Elige el sistema que mejor se ajuste a tu memoria motriz, velocidad de giro y estilo analítico.
+                Conoce diferentes métodos para resolver cubos de Rubik con sus pasos y notaciones, y descubre cuál se adapta mejor a tu forma de aprender y practicar.
             </p>
         </section>
 
-        <section aria-label="Métodos de resolución">
+        <section>
             <div class="catalogo">
 
                 <article class="tarjeta">
                     <div class="tarjeta-media">
                         <img
-                            src="img/metodo-principiante.jpg"
-                            alt="Resolución paso a paso de cubo de Rubik por capas para principiantes"
+                            src="img/metodo-principiante.svg"
+                            alt="Notación y pasos del método principiante con cruz blanca y algoritmos R U R' U'"
                             loading="lazy"
                         >
-                        <span class="tarjeta-badge">Iniciación</span>
                     </div>
                     <div class="tarjeta-cuerpo">
-                        <h3>Método Principiante (Capa por Capa)</h3>
+                        <h3>Método principiante</h3>
                         <p>
-                            El método universal para aprender. Resuelve el cubo dividiéndolo en tres niveles: cruz blanca, primera capa, aristas intermedias y última capa con algoritmos básicos y memorizables.
+                            Una forma sencilla de aprender a resolver el cubo capa por capa (cruz blanca, esquinas, capa central y última capa). Usa algoritmos fáciles de recordar como el conocido Sexy Move (R U R' U').
                         </p>
                         <div class="tarjeta-pie">
-                            <span class="tarjeta-meta">Pasos: 7 etapas | ~80 giros</span>
-                            <a href="contacto.html" class="boton boton-secundario">Pedir tutoría</a>
+                            <span class="tarjeta-meta">Ideal para empezar</span>
                         </div>
                     </div>
                 </article>
@@ -82,20 +76,18 @@
                 <article class="tarjeta">
                     <div class="tarjeta-media">
                         <img
-                            src="img/metodo-cfop.jpg"
-                            alt="Speedcuber aplicando el método CFOP Fridrich"
+                            src="img/metodo-cfop.svg"
+                            alt="Diagrama de notación del método CFOP: Cross, F2L, OLL y PLL"
                             loading="lazy"
                         >
-                        <span class="tarjeta-badge">Estándar Pro</span>
                     </div>
                     <div class="tarjeta-cuerpo">
                         <h3>Método CFOP (Fridrich)</h3>
                         <p>
-                            Popularizado por Jessica Fridrich, es el método con el que se han roto prácticamente todos los récords mundiales. Se compone de Cruz (Cross), Primeras dos capas (F2L), Orientación (OLL) y Permutación (PLL).
+                            Uno de los métodos más utilizados en speedcubing para el cubo 3x3. Se divide en 4 etapas: Cruz (Cross), Primeras dos capas (F2L), Orientación de la última capa (OLL) y Permutación (PLL).
                         </p>
                         <div class="tarjeta-pie">
-                            <span class="tarjeta-meta">Pasos: 4 etapas | 119 algoritmos</span>
-                            <a href="contacto.html" class="boton boton-secundario">Ver algoritmos</a>
+                            <span class="tarjeta-meta">Método de velocidad más usado</span>
                         </div>
                     </div>
                 </article>
@@ -103,20 +95,18 @@
                 <article class="tarjeta">
                     <div class="tarjeta-media">
                         <img
-                            src="img/metodo-roux.jpg"
-                            alt="Cubo de Rubik resuelto por bloques con el método Roux"
+                            src="img/metodo-roux.svg"
+                            alt="Diagrama de resolución por bloques y giros M del método Roux"
                             loading="lazy"
                         >
-                        <span class="tarjeta-badge">Intuitivo</span>
                     </div>
                     <div class="tarjeta-cuerpo">
                         <h3>Método Roux</h3>
                         <p>
-                            Creado por Gilles Roux. Destaca por requerir menos cantidad de movimientos (48 en promedio) y gran libertad intuitiva: crea dos bloques laterales de 1x2x3 y resuelve las esquinas y aristas restantes mediante la capa M (media).
+                            Método alternativo que utiliza un enfoque diferente para resolver el cubo. Se enfoca en construir dos bloques de 1x2x3 y resolver el resto con la capa media (M), reduciendo el número de movimientos.
                         </p>
                         <div class="tarjeta-pie">
-                            <span class="tarjeta-meta">Pasos: 4 etapas | ~48 giros</span>
-                            <a href="contacto.html" class="boton boton-secundario">Aprender Roux</a>
+                            <span class="tarjeta-meta">Menos movimientos</span>
                         </div>
                     </div>
                 </article>
@@ -124,20 +114,18 @@
                 <article class="tarjeta">
                     <div class="tarjeta-media">
                         <img
-                            src="img/metodo-zz.jpg"
-                            alt="Cubo de Rubik orientado con técnica de aristas método ZZ"
+                            src="img/metodo-zz.svg"
+                            alt="Diagrama del método ZZ mostrando la línea EO y resolución sin rotar"
                             loading="lazy"
                         >
-                        <span class="tarjeta-badge">Sin rotaciones</span>
                     </div>
                     <div class="tarjeta-cuerpo">
-                        <h3>Método ZZ (Zbigniew Zborowski)</h3>
+                        <h3>Método ZZ</h3>
                         <p>
-                            Un enfoque revolucionario que inicia con la orientación de todas las aristas del cubo (EOLine). Esto permite resolver los dos primeros bloques (ZZ-F2L) usando únicamente giros de las caras R, U y L, sin rotar el cubo en las manos.
+                            Método que busca una buena orientación inicial de aristas (EOLine). Al tener las aristas orientadas desde el inicio, puedes armar el resto del cubo usando solo giros de R, U y L sin rotarlo en las manos.
                         </p>
                         <div class="tarjeta-pie">
-                            <span class="tarjeta-meta">Pasos: 3 etapas | 0 rotaciones</span>
-                            <a href="contacto.html" class="boton boton-secundario">Explorar ZZ</a>
+                            <span class="tarjeta-meta">Sin rotaciones de cubo</span>
                         </div>
                     </div>
                 </article>
@@ -149,19 +137,7 @@
 
     <footer>
         <div class="contenedor-footer">
-            <div class="marca">
-                <span class="logo-texto">CUBIX</span>
-                <p class="lema-sitio">Pasión y velocidad en cada giro</p>
-            </div>
-            <nav class="footer-nav" aria-label="Enlaces rápidos de pie de página">
-                <a href="index.html">Inicio</a>
-                <a href="cubos.html">Cubos</a>
-                <a href="blog.html">Blog</a>
-                <a href="metodos.html">Métodos</a>
-                <a href="tienda.html">Tienda</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-            <p class="footer-creditos">&copy; 2026 <strong>CUBIX</strong> — Desarrollado con HTML, CSS y JS puro para Desarrollo Web.</p>
+            <p>&copy; 2026 CUBIX. Todos los derechos reservados.</p>
         </div>
     </footer>
 

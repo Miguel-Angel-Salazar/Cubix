@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda CUBIX — Catálogo de cubos de Rubik profesionales magnéticos, puzzles WCA, lubricantes y cronómetros al mejor precio en Colombia.">
-    <title>CUBIX | Tienda & Catálogo de Cubos</title>
+    <title>CUBIX | Tienda</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -27,7 +26,7 @@
                 <span class="linea"></span>
             </button>
 
-            <nav id="navegacion-principal" class="nav-principal" aria-label="Navegación principal">
+            <nav id="navegacion-principal" class="nav-principal">
                 <ul class="menu-lista">
                     <li><a href="index.html" class="enlace-nav">Inicio</a></li>
                     <li><a href="cubos.html" class="enlace-nav">Cubos</a></li>
@@ -37,10 +36,7 @@
                     <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
                 </ul>
                 <div class="acciones-header">
-                    <button id="boton-tema" class="boton-tema" aria-label="Alternar modo oscuro">
-                        <span id="icono-tema" aria-hidden="true">🌙</span>
-                        <span id="texto-tema">Modo oscuro</span>
-                    </button>
+                    <button id="boton-tema" class="boton-tema">🌙 Modo oscuro</button>
                 </div>
             </nav>
         </div>
@@ -49,36 +45,26 @@
     <main>
 
         <section class="pagina-cabecera">
-            <h2 class="titulo-seccion">Tienda de Cubos y Accesorios</h2>
+            <h2 class="titulo-seccion">Tienda CUBIX</h2>
             <p class="descripcion-seccion">
-                Descubre nuestra selección de cubos magnéticos de alta gama, puzzles oficiales y accesorios indispensables para optimizar tu rendimiento y velocidad.
+                Encuentra cubos de Rubik, puzzles de velocidad y accesorios para practicar, aprender y mejorar tus tiempos.
             </p>
         </section>
 
-        <section aria-label="Catálogo interactivo de productos">
+        <section>
 
-            <div class="barra-filtros">
-                <div class="filtro-grupo">
-                    <label for="categoria">Filtrar por categoría:</label>
-                    <select id="categoria">
-                        <option value="todos">Todas las categorías</option>
-                        <option value="cubos">Cubos Clásicos (NxN)</option>
-                        <option value="puzzles">Puzzles Especiales</option>
-                        <option value="accesorios">Accesorios & Lubricantes</option>
-                    </select>
-                </div>
-
-                <div class="filtro-pills" aria-label="Filtros rápidos">
-                    <button class="btn-pill activo" data-categoria="todos">Todos</button>
-                    <button class="btn-pill" data-categoria="cubos">Cubos NxN</button>
-                    <button class="btn-pill" data-categoria="puzzles">Puzzles</button>
-                    <button class="btn-pill" data-categoria="accesorios">Accesorios</button>
-                </div>
+            <div class="filtro">
+                <label for="categoria">Filtrar por categoría:</label>
+                <select id="categoria">
+                    <option value="todos">Todos</option>
+                    <option value="cubos">Cubos</option>
+                    <option value="puzzles">Puzzles</option>
+                    <option value="accesorios">Accesorios</option>
+                </select>
             </div>
 
-            <!-- Contenedor dinámico poblado mediante JavaScript -->
-            <div id="catalogo-productos" class="catalogo" aria-live="polite">
-                <!-- Los productos se renderizan dinámicamente desde script.js -->
+            <div id="catalogo-productos" class="catalogo">
+                <!-- Los productos serán creados dinámicamente con JavaScript -->
             </div>
 
         </section>
@@ -87,19 +73,7 @@
 
     <footer>
         <div class="contenedor-footer">
-            <div class="marca">
-                <span class="logo-texto">CUBIX</span>
-                <p class="lema-sitio">Pasión y velocidad en cada giro</p>
-            </div>
-            <nav class="footer-nav" aria-label="Enlaces rápidos de pie de página">
-                <a href="index.html">Inicio</a>
-                <a href="cubos.html">Cubos</a>
-                <a href="blog.html">Blog</a>
-                <a href="metodos.html">Métodos</a>
-                <a href="tienda.html">Tienda</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-            <p class="footer-creditos">&copy; 2026 <strong>CUBIX</strong> — Desarrollado con HTML, CSS y JS puro para Desarrollo Web.</p>
+            <p>&copy; 2026 CUBIX. Todos los derechos reservados.</p>
         </div>
     </footer>
 
