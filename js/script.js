@@ -31,3 +31,30 @@ const productos = [
     }
 ];
 
+const catalogo = document.getElementById("catalogo-productos");
+
+function mostrarProductos(listaProductos) {
+
+    if (!catalogo) {
+        return;
+    }
+
+    catalogo.innerHTML = "";
+
+    listaProductos.forEach(function(producto) {
+
+        const tarjeta = document.createElement("article");
+
+        tarjeta.classList.add("tarjeta");
+
+        tarjeta.innerHTML = `
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion}</p>
+            <p><strong>Categoría:</strong> ${producto.categoria}</p>
+        `;
+
+        catalogo.appendChild(tarjeta);
+    });
+}
+
+mostrarProductos(productos);
