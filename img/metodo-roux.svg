@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradRoux" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#bgGradRoux)" rx="12" />
+  <text x="200" y="34" fill="#f8fafc" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">MÉTODO ROUX (BLOQUES Y CAPA M)</text>
+  <text x="200" y="54" fill="#94a3b8" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Menor número de movimientos (~48 giros) · Gran intuición</text>
+
+  <!-- Diagrama de Cubo con Bloques -->
+  <g transform="translate(60, 80)">
+    <rect x="0" y="0" width="120" height="120" fill="#1e293b" stroke="#334155" stroke-width="2" rx="8" />
+    <!-- Bloque izquierdo (resuelto) -->
+    <rect x="6" y="6" width="34" height="108" fill="#38bdf8" rx="4" opacity="0.9" />
+    <!-- Capa central M (libre) -->
+    <rect x="44" y="6" width="32" height="108" fill="#334155" rx="4" />
+    <text x="60" y="66" fill="#f59e0b" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">M</text>
+    <!-- Bloque derecho (resuelto) -->
+    <rect x="80" y="6" width="34" height="108" fill="#10b981" rx="4" opacity="0.9" />
+
+    <text x="60" y="145" fill="#f8fafc" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Bloques 1x2x3</text>
+  </g>
+
+  <!-- Fases de Roux -->
+  <g transform="translate(215, 80)">
+    <rect x="0" y="0" width="145" height="135" fill="#1e293b" stroke="#334155" stroke-width="1.5" rx="8" />
+    <text x="72" y="24" fill="#f59e0b" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">FASES DE ROUX</text>
+    
+    <text x="14" y="50" fill="#38bdf8" font-family="Arial, sans-serif" font-size="11" font-weight="bold">1. Primer bloque 1x2x3</text>
+    <text x="14" y="74" fill="#10b981" font-family="Arial, sans-serif" font-size="11" font-weight="bold">2. Segundo bloque</text>
+    <text x="14" y="98" fill="#f59e0b" font-family="Arial, sans-serif" font-size="11" font-weight="bold">3. CMLL (esquinas)</text>
+    <text x="14" y="122" fill="#ef4444" font-family="Arial, sans-serif" font-size="11" font-weight="bold">4. LSE (Capa media M)</text>
+  </g>
+
+  <text x="200" y="255" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Ventaja: resolución muy ergonómica usando solo dedos índices</text>
+</svg>
