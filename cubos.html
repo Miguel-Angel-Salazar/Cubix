@@ -4,91 +4,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CUBIX | Cubos</title>
-
+    <meta name="description" content="Guía completa de tipos de cubos de Rubik: 2x2, 3x3, 4x4, 5x5, Pyraminx y Megaminx. Encuentra el puzzle ideal para tu nivel.">
+    <title>CUBIX | Guía de Cubos y Puzzles</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>CUBIX</h1>
-        <p>El mundo del cubo de Rubik</p>
+    <header class="encabezado-principal">
+        <div class="contenedor-header">
+            <div class="marca">
+                <a href="index.html" class="logo-cubix">
+                    <span class="logo-icono" aria-hidden="true">🧊</span>
+                    <h1 class="logo-texto">CUBIX</h1>
+                </a>
+                <p class="lema-sitio">El mundo del cubo de Rubik</p>
+            </div>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="cubos.html">Cubos</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="metodos.html">Métodos</a></li>
-                <li><a href="tienda.html">Tienda</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <button id="boton-tema">🌙 Modo oscuro</button>
-        </nav>
+            <button id="boton-menu" class="boton-menu" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="linea"></span>
+                <span class="linea"></span>
+                <span class="linea"></span>
+            </button>
+
+            <nav id="navegacion-principal" class="nav-principal" aria-label="Navegación principal">
+                <ul class="menu-lista">
+                    <li><a href="index.html" class="enlace-nav">Inicio</a></li>
+                    <li><a href="cubos.html" class="enlace-nav activo">Cubos</a></li>
+                    <li><a href="blog.html" class="enlace-nav">Blog</a></li>
+                    <li><a href="metodos.html" class="enlace-nav">Métodos</a></li>
+                    <li><a href="tienda.html" class="enlace-nav">Tienda</a></li>
+                    <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
+                </ul>
+                <div class="acciones-header">
+                    <button id="boton-tema" class="boton-tema" aria-label="Alternar modo oscuro">
+                        <span id="icono-tema" aria-hidden="true">🌙</span>
+                        <span id="texto-tema">Modo oscuro</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main>
 
-        <section class="pagina">
-            <h2>Tipos de cubos</h2>
-
-            <p>
-                Explora diferentes tipos de cubos y encuentra el modelo
-                que mejor se adapte a tu nivel y estilo de resolución.
+        <section class="pagina-cabecera">
+            <h2 class="titulo-seccion">Tipos de Cubos y Puzzles</h2>
+            <p class="descripcion-seccion">
+                Explora las principales categorías oficiales de la World Cube Association (WCA). Conoce sus características, número de piezas y nivel de dificultad para elegir tu siguiente reto.
             </p>
         </section>
 
-        <section>
+        <section aria-label="Listado de cubos">
             <div class="catalogo">
 
                 <article class="tarjeta">
-                    <h3>Cubo 2x2</h3>
-                    <p>
-                        Una versión pequeña y sencilla para comenzar
-                        en el mundo de los cubos.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/cubo-2x2.jpg"
+                            alt="Cubo de Rubik 2x2 pocket cube de velocidad stickerless"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Principiante</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Cubo 2x2 (Pocket Cube)</h3>
+                        <p>
+                            Formado únicamente por 8 esquinas. Es rápido de resolver, ideal para quienes se inician en la memorización de algoritmos como Ortega o CLL.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">Dificultad: Fácil</span>
+                            <a href="tienda.html" class="boton boton-secundario">Ver en tienda</a>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="tarjeta">
-                    <h3>Cubo 3x3</h3>
-                    <p>
-                        El cubo clásico y uno de los más conocidos
-                        dentro del speedcubing.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/cubo-3x3.jpg"
+                            alt="Cubo de Rubik 3x3 clásico profesional de speedcubing"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Estándar WCA</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Cubo 3x3 (El Clásico)</h3>
+                        <p>
+                            El pilar central del speedcubing mundial. Cuenta con más de 43 trillones de combinaciones posibles y es la categoría reina en cualquier torneo oficial.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">Dificultad: Media</span>
+                            <a href="tienda.html" class="boton boton-secundario">Ver en tienda</a>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="tarjeta">
-                    <h3>Cubo 4x4</h3>
-                    <p>
-                        Un reto mayor que añade nuevas posibilidades
-                        de resolución.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/cubo-4x4.jpg"
+                            alt="Cubo de Rubik 4x4 Rubik's Revenge magnético"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Avanzado</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Cubo 4x4 (Rubik's Revenge)</h3>
+                        <p>
+                            Al no tener centros fijos, introduce la necesidad de emparejar aristas y resolver centros, además de enfrentarse a las famosas paridades OLL y PLL.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">Dificultad: Media-Alta</span>
+                            <a href="tienda.html" class="boton boton-secundario">Ver en tienda</a>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="tarjeta">
-                    <h3>Cubo 5x5</h3>
-                    <p>
-                        Un cubo para quienes quieren aumentar
-                        la dificultad.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/cubo-5x5.jpg"
+                            alt="Cubo de Rubik 5x5 Professor cube con cinco capas"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Reto Mayor</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Cubo 5x5 (Professor Cube)</h3>
+                        <p>
+                            El hermano mayor de los cubos estándar. Recupera los centros fijos pero amplía considerablemente la cantidad de bloques a emparejar y el tiempo de concentración.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">Dificultad: Alta</span>
+                            <a href="tienda.html" class="boton boton-secundario">Ver en tienda</a>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="tarjeta">
-                    <h3>Pyraminx</h3>
-                    <p>
-                        Puzzle con forma de pirámide que ofrece
-                        una experiencia diferente.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/pyraminx.jpg"
+                            alt="Puzzle Pyraminx de forma tetraédrica con colores vivos"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Pirámidal</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Pyraminx</h3>
+                        <p>
+                            Un tetraedro de 4 caras triangulares inventado por Uwe Mèffert. Sus giros intuitivos y giros rápidos lo convierten en una de las categorías más divertidas y veloces.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">Dificultad: Media</span>
+                            <a href="tienda.html" class="boton boton-secundario">Ver en tienda</a>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="tarjeta">
-                    <h3>Megaminx</h3>
-                    <p>
-                        Un puzzle con muchas caras y un gran reto
-                        para los amantes de los cubos.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/megaminx.jpg"
+                            alt="Megaminx dodecaedro de 12 caras multicolores de competición"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Dodecaedro</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Megaminx</h3>
+                        <p>
+                            Puzzle de 12 caras y 50 piezas móviles. Utiliza una lógica similar al 3x3 pero expandida a una estrella de cinco puntas con un desafío visual incomparable.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">Dificultad: Alta</span>
+                            <a href="tienda.html" class="boton boton-secundario">Ver en tienda</a>
+                        </div>
+                    </div>
                 </article>
 
             </div>
@@ -97,11 +190,24 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 CUBIX. Todos los derechos reservados.</p>
+        <div class="contenedor-footer">
+            <div class="marca">
+                <span class="logo-texto">CUBIX</span>
+                <p class="lema-sitio">Pasión y velocidad en cada giro</p>
+            </div>
+            <nav class="footer-nav" aria-label="Enlaces rápidos de pie de página">
+                <a href="index.html">Inicio</a>
+                <a href="cubos.html">Cubos</a>
+                <a href="blog.html">Blog</a>
+                <a href="metodos.html">Métodos</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <p class="footer-creditos">&copy; 2026 <strong>CUBIX</strong> — Desarrollado con HTML, CSS y JS puro para Desarrollo Web.</p>
+        </div>
     </footer>
 
     <script src="js/script.js"></script>
 </body>
 
 </html>
-

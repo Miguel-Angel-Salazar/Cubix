@@ -4,73 +4,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CUBIX | El mundo del cubo</title>
-
+    <meta name="description" content="CUBIX — Portal especializado en el mundo del cubo de Rubik y speedcubing. Catálogo de cubos, métodos de resolución, blog y accesorios.">
+    <title>CUBIX | El Mundo del Cubo de Rubik</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>CUBIX</h1>
-        <p>El mundo del cubo de Rubik</p>
+    <header class="encabezado-principal">
+        <div class="contenedor-header">
+            <div class="marca">
+                <a href="index.html" class="logo-cubix">
+                    <span class="logo-icono" aria-hidden="true">🧊</span>
+                    <h1 class="logo-texto">CUBIX</h1>
+                </a>
+                <p class="lema-sitio">El mundo del cubo de Rubik</p>
+            </div>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="cubos.html">Cubos</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="metodos.html">Métodos</a></li>
-                <li><a href="tienda.html">Tienda</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <button id="boton-tema">🌙 Modo oscuro</button>
-        </nav>
+            <button id="boton-menu" class="boton-menu" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="linea"></span>
+                <span class="linea"></span>
+                <span class="linea"></span>
+            </button>
+
+            <nav id="navegacion-principal" class="nav-principal" aria-label="Navegación principal">
+                <ul class="menu-lista">
+                    <li><a href="index.html" class="enlace-nav activo">Inicio</a></li>
+                    <li><a href="cubos.html" class="enlace-nav">Cubos</a></li>
+                    <li><a href="blog.html" class="enlace-nav">Blog</a></li>
+                    <li><a href="metodos.html" class="enlace-nav">Métodos</a></li>
+                    <li><a href="tienda.html" class="enlace-nav">Tienda</a></li>
+                    <li><a href="contacto.html" class="enlace-nav">Contacto</a></li>
+                </ul>
+                <div class="acciones-header">
+                    <button id="boton-tema" class="boton-tema" aria-label="Alternar modo oscuro">
+                        <span id="icono-tema" aria-hidden="true">🌙</span>
+                        <span id="texto-tema">Modo oscuro</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main>
 
-        <section id="inicio">
-            <h2>Descubre el mundo del cubo</h2>
+        <section class="hero-inicio">
+            <div class="hero-contenido">
+                <span class="hero-badge">⚡ Portal Oficial de Speedcubing</span>
+                <h2 class="hero-titulo">Domina el arte de resolver el cubo</h2>
+                <p class="hero-descripcion">
+                    Aprende métodos de velocidad comprobados, explora la variedad de puzzles mecánicos de la WCA y encuentra los mejores cubos profesionales para pulverizar tus marcas personales.
+                </p>
+                <div class="hero-acciones">
+                    <a href="cubos.html" class="boton boton-primario">Explorar cubos</a>
+                    <a href="metodos.html" class="boton boton-secundario">Ver métodos de resolución</a>
+                </div>
+            </div>
 
-            <p>
-                Aprende sobre cubos de Rubik, descubre diferentes métodos de resolución y encuentra productos para mejorar tu experiencia.
-            </p>
+            <div class="hero-imagen-contenedor">
+                <img
+                    src="img/hero-cube.jpg"
+                    alt="Cubo de Rubik 3x3 profesional de velocidad con colores vivos sobre fondo oscuro de estudio"
+                    class="hero-imagen"
+                    width="520"
+                    height="380"
+                >
+            </div>
+        </section>
 
-            <div class="botones-inicio">
-                <a href="cubos.html" class="boton">Explorar cubos</a>
-                <a href="metodos.html" class="boton">Ver métodos</a>
+        <section class="cinta-destacados" aria-label="Estadísticas de la plataforma">
+            <div class="item-destacado">
+                <span class="cifra">+6</span>
+                <span class="etiqueta">Variedades de Puzzles</span>
+            </div>
+            <div class="item-destacado">
+                <span class="cifra">4</span>
+                <span class="etiqueta">Métodos de Resolución</span>
+            </div>
+            <div class="item-destacado">
+                <span class="cifra">100%</span>
+                <span class="etiqueta">Cubos Magnéticos Originales</span>
+            </div>
+            <div class="item-destacado">
+                <span class="cifra">&lt; 10s</span>
+                <span class="etiqueta">Nivel Speedcubing Objetivo</span>
             </div>
         </section>
 
         <section class="presentacion">
-            <h2>¿Qué encontrarás en CUBIX?</h2>
+            <h2 class="titulo-seccion">¿Qué encontrarás en CUBIX?</h2>
+            <p class="descripcion-seccion">
+                Un ecosistema creado tanto para principiantes que buscan armar su primer cubo como para speedcubers en búsqueda de su próximo sub-10.
+            </p>
 
             <div class="tarjetas-info">
 
                 <article class="tarjeta">
-                    <h3>🧊 Cubos</h3>
-                    <p>
-                        Conoce diferentes tipos de cubos y descubre
-                        cuál se adapta mejor a ti.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/cubo-3x3.jpg"
+                            alt="Cubo de Rubik 3x3 clásico de velocidad"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Puzzles</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>🧊 Guía de Cubos</h3>
+                        <p>
+                            Desde el 2x2 hasta el Megaminx. Conoce las categorías oficiales de la World Cube Association y sus características mecánicas.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">6 categorías analizadas</span>
+                            <a href="cubos.html" class="boton boton-secundario">Ver guía &rarr;</a>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="tarjeta">
-                    <h3>📖 Blog</h3>
-                    <p>
-                        Aprende sobre la historia, conceptos y consejos
-                        relacionados con el mundo del cubo.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/metodo-cfop.jpg"
+                            alt="Demostración de algoritmos de resolución para cubo de Rubik"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Tutoriales</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>🧠 Métodos de Resolución</h3>
+                        <p>
+                            Aprende desde el método Principiante paso a paso hasta los sistemas avanzados como CFOP (Fridrich), Roux y ZZ.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">Principiante a Avanzado</span>
+                            <a href="metodos.html" class="boton boton-secundario">Ver métodos &rarr;</a>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="tarjeta">
-                    <h3>🧠 Métodos</h3>
-                    <p>
-                        Descubre diferentes formas de resolver un cubo
-                        y mejora tus tiempos.
-                    </p>
+                    <div class="tarjeta-media">
+                        <img
+                            src="img/historia-rubik.jpg"
+                            alt="Historia y evolución de los cubos de velocidad"
+                            loading="lazy"
+                        >
+                        <span class="tarjeta-badge">Comunidad</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>📖 Artículos & Blog</h3>
+                        <p>
+                            Historia del invento de Ernő Rubik en 1974, consejos de inspección, técnicas de finger tricks y mantenimiento de cubos.
+                        </p>
+                        <div class="tarjeta-pie">
+                            <span class="tarjeta-meta">4 lecturas esenciales</span>
+                            <a href="blog.html" class="boton boton-secundario">Leer blog &rarr;</a>
+                        </div>
+                    </div>
                 </article>
 
             </div>
@@ -79,8 +168,23 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 CUBIX. Todos los derechos reservados.</p>
+        <div class="contenedor-footer">
+            <div class="marca">
+                <span class="logo-texto">CUBIX</span>
+                <p class="lema-sitio">Pasión y velocidad en cada giro</p>
+            </div>
+            <nav class="footer-nav" aria-label="Enlaces rápidos de pie de página">
+                <a href="index.html">Inicio</a>
+                <a href="cubos.html">Cubos</a>
+                <a href="blog.html">Blog</a>
+                <a href="metodos.html">Métodos</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <p class="footer-creditos">&copy; 2026 <strong>CUBIX</strong> — Desarrollado con HTML, CSS y JS puro para Desarrollo Web.</p>
+        </div>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 
