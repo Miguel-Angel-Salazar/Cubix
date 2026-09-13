@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* ==========================================================================
-   VARIABLES Y TEMA DEL SISTEMA DE DISEÑO (CSS CUSTOM PROPERTIES)
-   ========================================================================== */
+
 :root {
     --fuente-principal: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
@@ -68,9 +66,7 @@ body.modo-oscuro {
     --sombra-hover: 0 20px 35px -6px rgba(0, 0, 0, 0.7);
 }
 
-/* ==========================================================================
-   REINICIO Y ESTILOS BASE
-   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -114,9 +110,6 @@ img {
     outline-offset: 3px;
 }
 
-/* ==========================================================================
-   ENCABEZADO Y NAVEGACIÓN (FLEXBOX)
-   ========================================================================== */
 header.encabezado-principal {
     background-color: var(--color-header-bg);
     color: var(--color-header-texto);
@@ -262,9 +255,7 @@ header.encabezado-principal {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ==========================================================================
-   CONTENIDO PRINCIPAL Y SECCIONES
-   ========================================================================== */
+
 main {
     flex: 1;
     max-width: 1240px;
@@ -305,9 +296,7 @@ section:last-of-type {
     margin: 0 auto;
 }
 
-/* ==========================================================================
-   HERO / INICIO (INDEX.HTML)
-   ========================================================================== */
+
 .hero-inicio {
     display: flex;
     align-items: center;
@@ -450,9 +439,7 @@ section:last-of-type {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   SISTEMA DE CUADRÍCULA DE TARJETAS (CSS GRID)
-   ========================================================================== */
+
 .catalogo,
 .tarjetas-info,
 .grid-tarjetas {
@@ -558,9 +545,7 @@ section:last-of-type {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   TIENDA Y FILTROS (FLEXBOX Y FORMULARIOS)
-   ========================================================================== */
+
 .filtro {
     display: flex;
     justify-content: center;
@@ -594,9 +579,7 @@ section:last-of-type {
 }
 
 
-/* ==========================================================================
-   FORMULARIO DE CONTACTO (FLEXBOX & VALIDACIÓN)
-   ========================================================================== */
+
 .formulario {
     max-width: 580px;
     margin: 30px auto 0;
@@ -713,9 +696,7 @@ body.modo-oscuro .mensaje-error-global {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   PIE DE PÁGINA (FOOTER)
-   ========================================================================== */
+
 footer {
     background-color: var(--color-header-bg);
     color: #94a3b8;
@@ -759,9 +740,7 @@ footer {
     color: #ffffff;
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (TABLET Y MÓVIL)
-   ========================================================================== */
+
 /* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
     .catalogo,
