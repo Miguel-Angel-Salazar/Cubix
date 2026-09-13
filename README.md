@@ -43,10 +43,9 @@ En `script.js` tengo programadas las siguientes funciones:
 La gran mayoría de la página ya la tenía construida yo (toda la estructura de las 6 páginas HTML, la temática de los cubos, los textos del blog y la idea del catálogo con el formulario). 
 
 Utilicé la IA como apoyo principalmente en dos partes:
-- **En el CSS:** Para ayudarme a pulir el diseño visual, definir una paleta de colores coherente con variables (`:root`) para el modo claro y oscuro, y organizar los media queries para que no se rompiera en celular ni tablet.
+- **En el CSS:** Para ayudarme a pulir el diseño visual, definir una paleta de colores coherente con variables (`:root`) para el modo claro y oscuro, y organizar las medidas requeridas para que no se rompiera en celular ni tablet.
 - **En el JavaScript:** Para apoyarme en la lógica de conectar el envío real del formulario con `fetch()` hacia Formspree y mejorar la interacción del menú móvil.
 
-De lo que me sugirió la IA, corregí varias cosas: quité imágenes genéricas que no tenían nada que ver con cubos (como fotos de oficinas, celulares o carreteras) y busqué imágenes reales de cubos de Rubik, una foto de Ernő Rubik, el timer StackMat, lubricante MoYu y diagramas de métodos. También simplifiqué los textos para que sonaran naturales y no como un texto automático de marketing.
 
 ### ¿Qué fue lo más difícil y cómo lo solucioné?
 Lo más difícil fue hacer que el modo oscuro se mantuviera funcionando en las 6 páginas sin parpadear al cambiar de una a otra, lo cual resolví leyendo el `localStorage` apenas carga el script. También me costó que las tarjetas del catálogo se vieran parejas cuando las fotos tenían proporciones distintas, lo que solucioné poniéndole una altura fija al contenedor de la foto con `object-fit: cover` en CSS.
