@@ -6,7 +6,7 @@ Proyecto web sobre cubos de Rubik, métodos de resolución y tienda de productos
 
 ## Enlaces del proyecto
 
-- **Sitio publicado en Vercel:** [https://cubix-project.vercel.app](https://cubix-ruddy.vercel.app/)
+- **Sitio publicado en Vercel:** [https://cubix-ruddy.vercel.app](https://cubix-ruddy.vercel.app/)
 - **Repositorio en GitHub:** [https://github.com/Miguel-Angel-Salazar/Cubix](https://github.com/Miguel-Angel-Salazar/Cubix)
 
 ---
