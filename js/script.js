@@ -81,3 +81,59 @@ if (filtroCategoria) {
         }
     });
 }
+
+
+const formulario = document.getElementById("formulario-contacto");
+
+if (formulario) {
+
+    formulario.addEventListener("submit", function(evento) {
+
+        evento.preventDefault();
+
+        const nombre = document.getElementById("nombre");
+        const correo = document.getElementById("correo");
+        const mensaje = document.getElementById("mensaje");
+
+        const errorNombre = document.getElementById("error-nombre");
+        const errorCorreo = document.getElementById("error-correo");
+        const errorMensaje = document.getElementById("error-mensaje");
+        const mensajeExito = document.getElementById("mensaje-exito");
+
+        errorNombre.textContent = "";
+        errorCorreo.textContent = "";
+        errorMensaje.textContent = "";
+        mensajeExito.textContent = "";
+
+        let formularioValido = true;
+
+        if (nombre.value.trim() === "") {
+            errorNombre.textContent = "El nombre es obligatorio.";
+            formularioValido = false;
+        }
+
+        if (correo.value.trim() === "") {
+            errorCorreo.textContent = "El correo es obligatorio.";
+            formularioValido = false;
+        } else if (!correo.value.includes("@")) {
+            errorCorreo.textContent = "Ingresa un correo válido.";
+            formularioValido = false;
+        }
+
+        if (mensaje.value.trim() === "") {
+            errorMensaje.textContent = "El mensaje es obligatorio.";
+            formularioValido = false;
+        } else if (mensaje.value.trim().length < 10) {
+            errorMensaje.textContent = "El mensaje debe tener mínimo 10 caracteres.";
+            formularioValido = false;
+        }
+
+        if (formularioValido) {
+
+            mensajeExito.textContent = "Mensaje enviado correctamente.";
+
+            formulario.reset();
+        }
+    });
+}
+
