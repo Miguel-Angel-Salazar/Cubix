@@ -58,3 +58,26 @@ function mostrarProductos(listaProductos) {
 }
 
 mostrarProductos(productos);
+
+const filtroCategoria = document.getElementById("categoria");
+
+if (filtroCategoria) {
+
+    filtroCategoria.addEventListener("change", function() {
+
+        const categoriaSeleccionada = filtroCategoria.value;
+
+        if (categoriaSeleccionada === "todos") {
+
+            mostrarProductos(productos);
+
+        } else {
+
+            const productosFiltrados = productos.filter(function(producto) {
+                return producto.categoria === categoriaSeleccionada;
+            });
+
+            mostrarProductos(productosFiltrados);
+        }
+    });
+}
