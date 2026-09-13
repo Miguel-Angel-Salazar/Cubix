@@ -1,0 +1,12 @@
+# Dependencias y compilados
+node_modules/
+.vercel/
+.dist/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Entornos y claves locales
+.env
+.env.local
