@@ -60,6 +60,15 @@ nav a:hover {
     color: var(--color-acento);
 }
 
+#boton-tema {
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 main {
     max-width:  1200px;
     margin: 0 auto;
@@ -302,23 +311,91 @@ footer {
 
 
 body.modo-oscuro {
-    --color-principal: #111111;
+    --color-principal: #f5f5f5;
     --color-secundario: #181818;
     --color-texto: #f5f5f5;
-    --color-blanco: #242424;
+    --color-blanco: #252525;
 }
 
+/* Texto general */
+body.modo-oscuro {
+    color: #f5f5f5;
+    background-color: #181818;
+}
+
+/* Encabezado */
+body.modo-oscuro header {
+    background-color: #0f0f0f;
+    color: #f5f5f5;
+}
+
+body.modo-oscuro header h1 {
+    color: #ffffff;
+}
+
+body.modo-oscuro header p {
+    color: #dddddd;
+}
+
+/* Enlaces del menú */
+body.modo-oscuro nav a {
+    color: #ffffff;
+}
+
+body.modo-oscuro nav a:hover {
+    color: var(--color-acento);
+}
+
+/* Títulos y textos */
+body.modo-oscuro h2,
+body.modo-oscuro h3,
+body.modo-oscuro p {
+    color: #f5f5f5;
+}
+
+/* Tarjetas */
 body.modo-oscuro .tarjeta {
+    background-color: #252525;
+    color: #f5f5f5;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.08);
 }
 
-#boton-tema {
-    margin-top: 15px;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: var(--color-acento);
-    color: var(--color-principal);
+body.modo-oscuro .tarjeta h3,
+body.modo-oscuro .tarjeta p {
+    color: #f5f5f5;
 }
+
+/* Formulario */
+body.modo-oscuro .formulario input,
+body.modo-oscuro .formulario textarea,
+body.modo-oscuro .filtro select {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+body.modo-oscuro .formulario input::placeholder,
+body.modo-oscuro .formulario textarea::placeholder {
+    color: #bbbbbb;
+}
+
+/* Mensajes */
+body.modo-oscuro .error {
+    color: #ff6b6b;
+}
+
+body.modo-oscuro .mensaje-exito {
+    color: #66dd88;
+}
+
+/* Pie de página */
+body.modo-oscuro footer {
+    background-color: #0f0f0f;
+    color: #ffffff;
+}
+
+body.modo-oscuro footer p {
+    color: #ffffff;
+}
+
 
