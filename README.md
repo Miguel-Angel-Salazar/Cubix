@@ -2,6 +2,16 @@
 
 Proyecto web sobre cubos de Rubik, métodos de resolución y tienda de productos, hecho con **HTML, CSS y JavaScript puro** (sin frameworks ni librerías) para la **Entrega 1 de Desarrollo Web (2026-2)**.
 
+## Avance de la Entrega 3
+
+La versión original de la Entrega 1 se conserva en la raíz del proyecto. El nuevo frontend comienza en `frontend/` con Next.js, TypeScript y Tailwind; por ahora incluye la portada inicial de CUBIX.
+
+Para ejecutar esta versión localmente:
+
+1. Instala Node.js.
+2. Desde la carpeta `frontend/`, ejecuta `npm install`.
+3. Ejecuta `npm run dev` y abre [http://localhost:3000](http://localhost:3000).
+
 ---
 
 ## Enlaces del proyecto
