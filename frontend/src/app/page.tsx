@@ -1,110 +1,112 @@
 import Image from "next/image";
+import SiteHeader from "./site-header";
 
 const topics = [
   {
-    title: "Cubos",
+    id: "cubos",
+    title: "🧊 Cubos",
+    image: "/images/cubo-3x3.jpg",
+    imageAlt: "Cubo de Rubik 3x3",
     description:
-      "Conoce cubos clásicos, puzzles y opciones para dar tus primeros pasos.",
+      "Conoce diferentes tipos de cubos y descubre cuál se adapta mejor a lo que buscas.",
   },
   {
-    title: "Métodos",
+    id: "metodos",
+    title: "🧩 Métodos",
+    image: "/images/metodo-cfop.svg",
+    imageAlt: "Diagrama del método de resolución CFOP",
     description:
-      "Explora distintas formas de resolver un cubo y mejorar tu técnica.",
+      "Aprende distintas formas de resolver el cubo y encuentra la que mejor se adapta a ti.",
   },
   {
-    title: "Tienda",
+    id: "tienda",
+    title: "🛍️ Tienda",
+    image: "/images/timer.jpg",
+    imageAlt: "Timer digital para practicar speedcubing",
     description:
-      "Encuentra cubos y accesorios para acompañar tu práctica.",
+      "Encuentra cubos y accesorios para mejorar tus tiempos y tu experiencia.",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      <header className="bg-slate-900 text-slate-50">
-        <nav
-          aria-label="Navegación principal"
-          className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
-        >
-          <a
-            href="#inicio"
-            className="text-2xl font-extrabold tracking-wide"
-            aria-label="CUBIX, inicio"
-          >
-            CUBIX<span className="text-amber-400">.</span>
-          </a>
-          <p className="hidden text-sm text-slate-300 sm:block">
-            El mundo del cubo de Rubik
-          </p>
-        </nav>
-      </header>
+      <SiteHeader />
 
-      <main>
-        <section
-          id="inicio"
-          className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 sm:py-24 lg:grid-cols-2"
-        >
-          <div>
-            <p className="mb-4 font-semibold text-blue-700">
-              Aprende · Practica · Mejora
-            </p>
-            <h1 className="max-w-xl text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+      <main className="home-main">
+        <section id="inicio" className="hero" aria-labelledby="hero-title">
+          <div className="hero-content">
+            <span className="hero-badge">Aprende · Practica · Mejora</span>
+            <h1 id="hero-title" className="hero-title">
               Descubre el mundo del cubo
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+            <p className="hero-description">
               Aprende sobre cubos de Rubik, descubre diferentes métodos de
               resolución y encuentra productos para mejorar tus tiempos y tu
               experiencia al armarlos.
             </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#cubos">
+                Explorar cubos
+              </a>
+              <a className="button button-secondary" href="#metodos">
+                Ver métodos
+              </a>
+            </div>
           </div>
 
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200 shadow-xl">
+          <div className="hero-image-frame">
             <Image
               src="/images/hero-cube.jpg"
-              alt="Cubo de Rubik 3x3"
+              alt="Cubo de Rubik 3x3 profesional"
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              sizes="(max-width: 700px) 100vw, (max-width: 1240px) 50vw, 600px"
+              className="hero-image"
             />
           </div>
         </section>
 
         <section
           id="explorar"
-          aria-labelledby="explorar-titulo"
-          className="bg-white px-6 py-16 sm:py-20"
+          className="topics-section"
+          aria-labelledby="topics-title"
         >
-          <div className="mx-auto max-w-6xl">
-            <h2
-              id="explorar-titulo"
-              className="text-3xl font-bold tracking-tight text-slate-950"
-            >
-              ¿Qué encontrarás en CUBIX?
-            </h2>
-            <p className="mt-3 max-w-2xl leading-7 text-slate-600">
-              Información para quienes están aprendiendo a armar su primer cubo
-              o quieren mejorar su velocidad en speedcubing.
-            </p>
+          <h2 id="topics-title" className="section-heading">
+            ¿Qué encontrarás en CUBIX?
+          </h2>
+          <p className="section-description">
+            Información organizada para quienes están aprendiendo a armar su
+            primer cubo o quieren mejorar su velocidad en speedcubing.
+          </p>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {topics.map((topic) => (
-                <article
-                  key={topic.title}
-                  className="rounded-xl border border-slate-200 bg-slate-50 p-6"
-                >
-                  <h3 className="text-xl font-semibold text-slate-900">
-                    {topic.title}
-                  </h3>
-                  <p className="mt-2 leading-7 text-slate-600">
-                    {topic.description}
-                  </p>
-                </article>
-              ))}
-            </div>
+          <div className="topic-grid">
+            {topics.map((topic) => (
+              <article key={topic.id} id={topic.id} className="topic-card">
+                <div className="topic-image-frame">
+                  <Image
+                    src={topic.image}
+                    alt={topic.imageAlt}
+                    fill
+                    sizes="(max-width: 700px) 85vw, (max-width: 900px) 40vw, 350px"
+                    className="topic-image"
+                  />
+                </div>
+                <h3>{topic.title}</h3>
+                <p>{topic.description}</p>
+              </article>
+            ))}
           </div>
         </section>
       </main>
+
+      <footer className="site-footer">
+        <div className="site-footer-inner">
+          <p>
+            <strong>CUBIX</strong> · El mundo del cubo de Rubik
+          </p>
+        </div>
+      </footer>
     </>
   );
 }

@@ -4,7 +4,11 @@ Proyecto web sobre cubos de Rubik, métodos de resolución y tienda de productos
 
 ## Avance de la Entrega 3
 
-La versión original de la Entrega 1 se conserva en la raíz del proyecto. El nuevo frontend comienza en `frontend/` con Next.js, TypeScript y Tailwind; por ahora incluye la portada inicial de CUBIX.
+La versión original de la Entrega 1 se conserva en la raíz del proyecto. El nuevo frontend comienza en `frontend/` con Next.js, TypeScript y Tailwind; por ahora incluye la portada inicial de CUBIX, con estilos adaptados, menú móvil, modo oscuro persistente y las imágenes originales reutilizadas.
+
+Las imágenes del frontend se sirven como archivos estáticos desde `frontend/public/images/`. PostgreSQL guardará la ruta o URL de la imagen del producto, no el archivo binario.
+
+La base inicial de la API está en `backend/` con Express, TypeScript y Prisma configurado para PostgreSQL. Completa `backend/.env` con tus valores de Supabase y un secreto JWT local antes de iniciar la API con `npm run dev` desde esa carpeta. El archivo `.env` no se sube a Git.
 
 Para ejecutar esta versión localmente:
 
