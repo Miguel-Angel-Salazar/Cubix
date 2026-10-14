@@ -1,4 +1,5 @@
-import { PrismaClient, ProductCategory } from "@prisma/client";
+import { PrismaClient, ProductCategory, Role } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -87,6 +88,45 @@ const products = [
 ];
 
 async function main() {
+  console.info("Iniciando seed de CUBIX...");
+
+  // 1. Crear o actualizar usuarios de prueba
+  const adminPasswordHash = await bcrypt.hash("Admin123!", 10);
+  const userPasswordHash = await bcrypt.hash("User123!", 10);
+
+  const admin = await prisma.user.upsert({
+    where: { email: "admin@cubix.com" },
+    update: {
+      name: "Administrador CUBIX",
+      role: Role.ADMIN,
+      passwordHash: adminPasswordHash,
+    },
+    create: {
+      email: "admin@cubix.com",
+      name: "Administrador CUBIX",
+      role: Role.ADMIN,
+      passwordHash: adminPasswordHash,
+    },
+  });
+
+  const user = await prisma.user.upsert({
+    where: { email: "user@cubix.com" },
+    update: {
+      name: "Usuario CUBIX",
+      role: Role.USER,
+      passwordHash: userPasswordHash,
+    },
+    create: {
+      email: "user@cubix.com",
+      name: "Usuario CUBIX",
+      role: Role.USER,
+      passwordHash: userPasswordHash,
+    },
+  });
+
+  console.info(`Usuarios creados/actualizados: ${admin.email} (ADMIN), ${user.email} (USER)`);
+
+  // 2. Crear o actualizar catálogo de productos reales de la Entrega 1
   for (const product of products) {
     await prisma.product.upsert({
       where: { slug: product.slug },
@@ -95,12 +135,12 @@ async function main() {
     });
   }
 
-  console.info(`Seed completado: ${products.length} productos de CUBIX.`);
+  console.info(`Seed completado: ${products.length} productos y 2 usuarios de prueba.`);
 }
 
 main()
   .catch((error: unknown) => {
-    console.error("No se pudo completar el seed de productos.", error);
+    console.error("No se pudo completar el seed.", error);
     process.exitCode = 1;
   })
   .finally(async () => {
