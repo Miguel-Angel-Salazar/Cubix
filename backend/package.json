@@ -11,7 +11,8 @@
     "prisma:generate": "prisma generate",
     "prisma:validate": "prisma validate",
     "prisma:seed": "prisma db seed",
-    "prisma:migrate": "prisma migrate deploy"
+    "prisma:migrate": "prisma migrate deploy",
+    "test": "tsx --test tests/**/*.test.ts"
   },
   "license": "UNLICENSED",
   "dependencies": {
