@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "./site-header";
 
+// CUBIX - Plataforma Web Next.js 16 (App Router)
+
 const topics = [
   {
     id: "cubos",
