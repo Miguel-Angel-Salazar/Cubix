@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import SiteHeader from "./site-header";
 
 const topics = [
   {
     id: "cubos",
     title: "🧊 Cubos",
+    href: "/cubos",
     image: "/images/cubo-3x3.jpg",
     imageAlt: "Cubo de Rubik 3x3",
     description:
@@ -13,6 +15,7 @@ const topics = [
   {
     id: "metodos",
     title: "🧩 Métodos",
+    href: "/metodos",
     image: "/images/metodo-cfop.svg",
     imageAlt: "Diagrama del método de resolución CFOP",
     description:
@@ -21,6 +24,7 @@ const topics = [
   {
     id: "tienda",
     title: "🛍️ Tienda",
+    href: "/tienda",
     image: "/images/timer.jpg",
     imageAlt: "Timer digital para practicar speedcubing",
     description:
@@ -46,12 +50,12 @@ export default function Home() {
               experiencia al armarlos.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#cubos">
+              <Link className="button button-primary" href="/cubos">
                 Explorar cubos
-              </a>
-              <a className="button button-secondary" href="#metodos">
+              </Link>
+              <Link className="button button-secondary" href="/metodos">
                 Ver métodos
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -82,7 +86,12 @@ export default function Home() {
 
           <div className="topic-grid">
             {topics.map((topic) => (
-              <article key={topic.id} id={topic.id} className="topic-card">
+              <Link
+                key={topic.id}
+                id={topic.id}
+                href={topic.href}
+                className="topic-card block group"
+              >
                 <div className="topic-image-frame">
                   <Image
                     src={topic.image}
@@ -94,7 +103,7 @@ export default function Home() {
                 </div>
                 <h3>{topic.title}</h3>
                 <p>{topic.description}</p>
-              </article>
+              </Link>
             ))}
           </div>
         </section>
@@ -103,7 +112,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="site-footer-inner">
           <p>
-            <strong>CUBIX</strong> · El mundo del cubo de Rubik
+            <strong>CUBIX</strong> · El mundo del cubo de Rubik · &copy; 2026
           </p>
         </div>
       </footer>

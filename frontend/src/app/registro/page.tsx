@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import SiteHeader from "../site-header";
 import { RegisterForm } from "../../features/auth/components/RegisterForm";
 import { useAuth } from "../../features/auth/hooks/useAuth";
@@ -20,7 +20,15 @@ export default function RegisterPage() {
     <>
       <SiteHeader />
       <main className="min-h-[calc(100vh-160px)] flex items-center justify-center py-12 px-4 sm:px-6">
-        <RegisterForm />
+        <Suspense
+          fallback={
+            <div className="w-full max-w-md p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center text-slate-400">
+              Cargando formulario...
+            </div>
+          }
+        >
+          <RegisterForm />
+        </Suspense>
       </main>
       <footer className="site-footer">
         <div className="site-footer-inner">
