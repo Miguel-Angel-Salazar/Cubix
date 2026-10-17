@@ -14,7 +14,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         {children}
         <Script id="theme-preference" strategy="beforeInteractive">
-          {`document.documentElement.dataset.theme = localStorage.getItem("tema") === "oscuro" ? "dark" : "light";`}
+          {`
+            try {
+              var t = localStorage.getItem("tema") === "oscuro" ? "dark" : "light";
+              document.documentElement.dataset.theme = t;
+              if (t === "dark") document.documentElement.classList.add("dark");
+              else document.documentElement.classList.remove("dark");
+            } catch(e) {}
+          `}
         </Script>
       </body>
     </html>

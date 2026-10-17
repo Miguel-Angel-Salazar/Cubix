@@ -18,8 +18,13 @@ if (process.env.NODE_ENV !== "production") {
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Permitir solicitudes sin origin (como Postman o curl) o que coincidan con la URL configurada
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Permitir solicitudes sin origin (como Postman o curl) o que pertenezcan a Vercel o localhost
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app") ||
+        origin.includes("localhost")
+      ) {
         callback(null, true);
       } else {
         callback(new Error(`Origen no permitido por CORS: ${origin}`));

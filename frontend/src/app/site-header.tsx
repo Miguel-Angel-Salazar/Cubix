@@ -22,6 +22,11 @@ export default function SiteHeader() {
   function toggleTheme() {
     const isDark = document.documentElement.dataset.theme !== "dark";
     document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     localStorage.setItem("tema", isDark ? "oscuro" : "claro");
   }
 
