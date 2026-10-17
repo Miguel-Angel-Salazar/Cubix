@@ -39,6 +39,21 @@ app.use("/api/productos", productRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/pedidos", orderRouter);
 
+// Ruta raíz informativa
+app.get("/", (_req, res) => {
+  res.status(200).json({
+    service: "CUBIX API REST",
+    status: "online",
+    version: "1.0.0",
+    endpoints: {
+      health: "/api/health",
+      auth: "/api/auth",
+      products: "/api/products",
+      orders: "/api/orders",
+    },
+  });
+});
+
 // Manejo de ruta 404
 app.use((_req, res) => {
   res.status(404).json({
