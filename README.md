@@ -46,8 +46,8 @@ La base de datos se inicializa con los siguientes usuarios para evaluación:
 
 | Rol | Correo | Contraseña | Permisos |
 | :--- | :--- | :--- | :--- |
-| **ADMIN** | `admin@cubix.com` | `admin123` | Gestión total: CRUD de catálogo de productos y vista global de pedidos |
-| **USER** | `user@cubix.com` | `user123` | Catálogo interactivo, creación de pedidos y consulta en `/mis-pedidos` |
+| **ADMIN** | `admin@cubix.com` | `Admin123!` | Gestión total: CRUD de catálogo de productos y vista global de pedidos |
+| **USER** | `user@cubix.com` | `User123!` | Catálogo interactivo, creación de pedidos y consulta en `/mis-pedidos` |
 
 ---
 
