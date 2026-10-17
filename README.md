@@ -8,7 +8,7 @@ Evolucionado desde **Entrega 1 (HTML/CSS/JS)** a **Entrega 3 (Next.js + TypeScri
 ## 🌐 Enlaces del Proyecto Desplegado
 
 - **Frontend en Producción (Vercel):** [https://cubix-ruddy.vercel.app](https://cubix-ruddy.vercel.app/)
-- **Backend API REST en Producción (Render):** [https://cubix-api.onrender.com](https://cubix-api.onrender.com) (o tu URL configurada en Render)
+- **Backend API REST en Producción (Render):** [https://cubix-api-v70n.onrender.com](https://cubix-api-v70n.onrender.com)
 - **Repositorio GitHub:** [https://github.com/Miguel-Angel-Salazar/Cubix](https://github.com/Miguel-Angel-Salazar/Cubix)
 
 ---
