@@ -62,5 +62,6 @@ export function errorMiddleware(
   console.error("[Unhandled Error]:", err instanceof Error ? err.message : err);
   res.status(500).json({
     error: "Error interno del servidor. Intenta nuevamente más tarde.",
+    message: err instanceof Error ? err.message : String(err),
   });
 }

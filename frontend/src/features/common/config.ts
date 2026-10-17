@@ -3,4 +3,4 @@
  */
 export const API_BASE_URL: string =
   process.env.NEXT_PUBLIC_API_HOST?.replace(/\/+$/, "") ||
-  "https://cubix-api-v70n.onrender.com";
+  "https://cubix-api-v78n.onrender.com";
