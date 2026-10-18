@@ -1,162 +1,141 @@
-# CUBIX — Frontend Web Application (Entrega 3)
+# CUBIX — Frontend
 
-Aplicación web profesional construida con **Next.js 16 (App Router), TypeScript y Tailwind CSS**, organizada mediante **Arquitectura Basada en Características (Feature-Driven Architecture)** para el curso de **Desarrollo Web (2026-2)**.
+Aplicación web desarrollada con **Next.js 16 (App Router), TypeScript y Tailwind CSS** para la Entrega 3 del curso de Desarrollo Web (2026-2).
 
-Evolucionada desde el sitio estático de la **Entrega 1** manteniendo la misma identidad visual, dominio (cubos de Rubik y speedcubing) y contenido real, ahora conectada a la API REST en producción.
-
----
-
-## 🌐 Enlaces del Proyecto Desplegado
-
-- **Frontend en Producción (Vercel):** [https://cubix-ruddy.vercel.app](https://cubix-ruddy.vercel.app)
-- **Backend API REST en Producción (Render):** [https://cubix-api-v78n.onrender.com](https://cubix-api-v78n.onrender.com)
-- **Repositorio GitHub:** [https://github.com/Miguel-Angel-Salazar/Cubix](https://github.com/Miguel-Angel-Salazar/Cubix)
+Migrada y expandida a partir del sitio web de la Entrega 1, manteniendo la temática de cubos de Rubik, ahora conectada a la API REST para autenticación, catálogo y pedidos.
 
 ---
 
-## 🔑 Credenciales de Prueba (Seed)
+## Enlaces
 
-Para probar todas las funciones, estados y rutas protegidas:
+- **Frontend en producción (Vercel):** [https://cubix-ruddy.vercel.app](https://cubix-ruddy.vercel.app)
+- **Backend API REST en producción (Render):** [https://cubix-api-v78n.onrender.com](https://cubix-api-v78n.onrender.com)
+- **Repositorio en GitHub:** [https://github.com/Miguel-Angel-Salazar/Cubix](https://github.com/Miguel-Angel-Salazar/Cubix)
 
-| Rol | Correo | Contraseña | Permisos y Vistas |
+---
+
+## Usuarios de prueba (Seed)
+
+Para probar las distintas vistas y permisos de la aplicación:
+
+| Rol | Correo | Contraseña | Vistas y permisos |
 | :--- | :--- | :--- | :--- |
-| **ADMIN** | `admin@cubix.com` | `Admin123!` | Acceso a `/admin`: panel CRUD del catálogo (crear, editar, eliminar con modal) y visualización global de pedidos. |
-| **USER** | `user@cubix.com` | `User123!` | Catálogo en `/tienda`, creación de órdenes con modal de compra y consulta en `/mis-pedidos`. Si intenta entrar a `/admin`, es redirigido a `/`. |
+| **ADMIN** | `admin@cubix.com` | `Admin123!` | Acceso a `/admin`: panel para crear, editar y eliminar productos del catálogo, y revisar todos los pedidos del sistema. |
+| **USER** | `user@cubix.com` | `User123!` | Navegar catálogo en `/tienda`, comprar con modal y ver historial en `/mis-pedidos`. Si intenta entrar a `/admin`, es redirigido al inicio. |
 
 ---
 
-## 🏛️ Organización por Features
+## Estructura del frontend
 
-El frontend sigue estrictamente el patrón por dominios de negocio:
+El código se encuentra organizado por módulos (features):
 
-```
+```text
 frontend/
 ├── src/
-│   ├── app/                    # Rutas de Next.js (App Router) — Solo componen
+│   ├── app/                    # Rutas de Next.js (App Router)
 │   │   ├── page.tsx            # Inicio (/)
-│   │   ├── cubos/page.tsx      # Guía WCA (/cubos)
+│   │   ├── cubos/page.tsx      # Guía de cubos (/cubos)
 │   │   ├── metodos/page.tsx    # Métodos de resolución (/metodos)
-│   │   ├── blog/page.tsx       # Artículos speedcubing (/blog)
-│   │   ├── tienda/page.tsx     # Catálogo con paginación y filtros (/tienda)
-│   │   ├── contacto/page.tsx   # Formulario interactivo (/contacto)
-│   │   ├── login/page.tsx      # Formulario de inicio de sesión (/login)
-│   │   ├── registro/page.tsx   # Formulario de registro de usuario (/registro)
-│   │   ├── mis-pedidos/page.tsx# Historial del usuario (/mis-pedidos - Protegida)
-│   │   ├── admin/page.tsx      # Panel administrativo (/admin - Protegida ADMIN)
-│   │   ├── not-found.tsx       # Página 404 personalizada con diseño CUBIX
-│   │   └── layout.tsx          # Estructura global, Navbar reactiva y ThemeProvider
+│   │   ├── blog/page.tsx       # Artículos (/blog)
+│   │   ├── tienda/page.tsx     # Catálogo con filtros y compra (/tienda)
+│   │   ├── contacto/page.tsx   # Formulario de contacto (/contacto)
+│   │   ├── login/page.tsx      # Inicio de sesión (/login)
+│   │   ├── registro/page.tsx   # Registro (/registro)
+│   │   ├── mis-pedidos/page.tsx# Historial de compras (/mis-pedidos - Protegida)
+│   │   ├── admin/page.tsx      # Panel de administración (/admin - Protegida ADMIN)
+│   │   ├── not-found.tsx       # Error 404 personalizado
+│   │   └── layout.tsx          # Navbar, Footer y ThemeProvider
 │   │
-│   └── features/               # Módulos desacoplados por funcionalidad
-│       ├── common/
-│       │   ├── config.ts       # API_BASE_URL leída desde NEXT_PUBLIC_API_HOST
-│       │   ├── http.ts         # Cliente HTTP centralizado (inyecta token, captura 401)
-│       │   └── components/     # Navbar, Footer, ThemeToggle, Button, Modal, Pagination
-│       ├── auth/
-│       │   ├── domain/         # Tipos: User, LoginRequest, RegisterRequest, AuthResponse
-│       │   ├── services/       # AuthService (login, register, me)
-│       │   ├── hooks/          # useAuth (estado de sesión reactivo, login, logout)
-│       │   └── components/     # LoginForm, RegisterForm, ProtectedRoute
-│       ├── products/
-│       │   ├── domain/         # Tipos: Product, ProductCategory, ProductFilters, CatalogResponse
-│       │   ├── services/       # ProductService (getProducts, getById, create, update, delete)
-│       │   ├── hooks/          # useProducts (paginación, filtros combinados, estados UI)
-│       │   └── components/     # ProductCard, ProductGrid, ProductFilters, AdminProductTable, ProductModal
-│       └── orders/
-│           ├── domain/         # Tipos: Order, OrderItem, CreateOrderRequest
-│           ├── services/       # OrderService (createOrder, getMyOrders, getAllOrders)
-│           ├── hooks/          # useOrders, useMyOrders
-│           └── components/     # OrderCard, OrderList, OrderModal
+│   └── features/               # Módulos por dominio
+│       ├── common/             # Cliente HTTP (http.ts), componentes compartidos (Navbar, Footer, Modales)
+│       ├── auth/               # Servicios, hooks de sesión (useAuth) y formularios de login/registro
+│       ├── products/           # Servicios, hooks de catálogo (useProducts) y tarjetas de productos
+│       └── orders/             # Servicios y componentes de pedidos y órdenes
 ```
 
-### Reglas Clave de Consumo:
-1. **Sin fetch sueltos:** Ningún componente invoca `fetch` directamente; todas las comunicaciones se delegan a `services/`.
-2. **Cliente HTTP Centralizado (`http.ts`):** Inyecta automáticamente el encabezado `Authorization: Bearer <token>` a cada solicitud autenticada y, si el backend responde `401`, elimina el token de `localStorage` y redirige al usuario a `/login`.
-3. **Manejo de Errores en UI:** Los errores del servidor se procesan y se muestran de forma inline junto al campo correspondiente, evitando el uso de alertas nativas (`alert()`).
-4. **Estados de UI Visibles:** El catálogo presenta estados claros de **cargando** (esqueletos/indicadores), **vacío** (mensaje informativo si no hay coincidencias) y **error** (con opción de reintento).
+### Aspectos clave de la implementación:
+- **Cliente HTTP (`http.ts`):** Centraliza las llamadas a la API, agrega automáticamente el token Bearer y, si la API responde 401, limpia la sesión y redirige al login.
+- **Servicios dedicados:** Los componentes no hacen `fetch` directo; toda la comunicación pasa por los servicios de cada módulo (`AuthService`, `ProductService`, `OrderService`).
+- **Estados de carga:** En la tienda y en los pedidos se manejan estados claros para carga, listas vacías y errores con opción de reintentar.
 
 ---
 
-## ⚙️ Configuración y Ejecución Local
+## Configuración y ejecución local
 
 ### 1. Requisitos
-- Node.js (v18 o superior)
-- Backend de CUBIX ejecutándose localmente (puerto 4000) o apuntando a Render.
+- Node.js (v18+)
+- Backend de CUBIX activo en local (puerto 4000) o apuntando a la URL de Render.
 
-### 2. Instalación de Dependencias
+### 2. Instalación de dependencias
 ```bash
 cd frontend
 npm install
 ```
 
-### 3. Variables de Entorno (`.env.local`)
-Copia el archivo `.env.example`:
-- En Linux / macOS / PowerShell:
-  ```bash
-  cp .env.example .env.local
-  ```
-- En Windows CMD:
-  ```cmd
-  copy .env.example .env.local
-  ```
+### 3. Variables de entorno (`.env.local`)
+Copia la plantilla `.env.example`:
+```bash
+cp .env.example .env.local
+```
 
-Asegúrate de que defina el host de la API:
+Asegúrate de definir la URL del backend:
 ```env
 NEXT_PUBLIC_API_HOST=http://localhost:4000
 ```
 *(Si no tienes el backend local activo, puedes apuntar a producción: `NEXT_PUBLIC_API_HOST=https://cubix-api-v78n.onrender.com`).*
 
-### 4. Compilación de Producción
-Verifica que TypeScript y Turbopack compilen sin errores:
+### 4. Compilación de producción
+Para verificar que Next.js y TypeScript compilen correctamente:
 ```bash
 npm run build
 ```
 
-### 5. Iniciar Servidor de Desarrollo
+### 5. Iniciar servidor de desarrollo
 ```bash
 npm run dev
-# Frontend disponible en http://localhost:3000
+# Disponible en http://localhost:3000
 ```
 
 ---
 
-## 🛡️ Rutas Protegidas y Gestión de Sesión
+## Rutas protegidas y manejo de sesión
 
-- **`/mis-pedidos`:** Requiere sesión activa. Si un usuario no autenticado entra a la URL, es redirigido automáticamente a `/login`.
-- **`/admin`:** Requiere rol `ADMIN`. Si un usuario normal (`USER`) o un visitante sin sesión escribe la URL en el navegador, es redirigido inmediatamente al inicio (`/`).
-- **`/login` y `/registro`:** Si el usuario ya cuenta con una sesión activa, ambas rutas lo redirigen automáticamente al inicio (`/`).
-- **Persistencia:** La sesión sobrevive al refrescar la página mediante la hidratación desde `localStorage`.
-- **Navbar Reactiva:**
-  - *Visitante:* Muestra botón "Ingresar".
-  - *Usuario:* Muestra el nombre del usuario y botón "Salir".
-  - *Admin:* Muestra además el enlace directo a "Administración" (`/admin`).
+- **`/mis-pedidos`:** Requiere tener sesión iniciada. Si un usuario sin sesión intenta entrar, es enviado a `/login`.
+- **`/admin`:** Requiere rol `ADMIN`. Si un usuario común (`USER`) o alguien sin sesión entra a la URL, es redirigido al inicio (`/`).
+- **`/login` y `/registro`:** Si el usuario ya tiene sesión iniciada, lo redirigen automáticamente al inicio (`/`).
+- **Persistencia de sesión:** La sesión se mantiene al recargar la página leyendo el token desde `localStorage`.
 
 ---
 
-## 🧠 Decisiones Técnicas
+## Decisiones técnicas (Criterios de la rúbrica)
 
 ### 1. Flujo completo de un login hasta la respuesta de una ruta protegida
-1. El usuario completa el formulario en `/login` y envía las credenciales.
+1. El usuario completa el formulario en `/login` con su email y clave.
 2. `LoginForm` valida los campos y llama a `AuthService.login({ email, password })`.
-3. El backend valida el hash con bcrypt, genera el JWT con `{ id, role }` y responde con `200 OK` y el token.
-4. El frontend guarda el token en `localStorage` (`cubix_token`) y sincroniza el estado de `AuthProvider`.
-5. Al acceder a `/mis-pedidos`, el hook `useMyOrders` invoca `OrderService.getMyOrders()`.
-6. El cliente HTTP `http.ts` añade automáticamente el encabezado `Authorization: Bearer <token>`.
-7. El backend valida el token en su middleware, extrae el `id` del payload y responde con las órdenes del usuario.
+3. El backend valida el hash con bcrypt, genera el JWT con `{ id, role }` y responde con código 200 y el token.
+4. El frontend guarda el token en `localStorage` (`cubix_token`) y actualiza el estado del `AuthProvider`.
+5. Al acceder a `/mis-pedidos`, el hook `useMyOrders` invoca a `OrderService.getMyOrders()`.
+6. El cliente HTTP (`http.ts`) intercepta la petición y añade automáticamente el encabezado `Authorization: Bearer <token>`.
+7. El backend valida el token, extrae el `id` y devuelve los pedidos pertenecientes a ese usuario con código 200.
 
 ### 2. Dónde se guarda el token y qué riesgo tiene
-- Se almacena en `localStorage` bajo la clave `cubix_token` para mantener la sesión tras recargar el navegador.
-- **Riesgo:** Vulnerabilidad ante ataques **XSS (Cross-Site Scripting)** si se inyectara código de terceros en el cliente. La alternativa ideal son cookies seguras `HttpOnly`. Como medidas de mitigación: no se usan paquetes no verificados, se previene `dangerouslySetInnerHTML`, el token tiene expiración y `http.ts` purga las credenciales si el backend responde 401.
+- Se almacena en `localStorage` bajo la clave `cubix_token` para que la sesión no se pierda al recargar la página.
+- **Riesgo:** Vulnerabilidad ante ataques **XSS (Cross-Site Scripting)** si un script malicioso lograse ejecutarse en el navegador. La alternativa más segura son cookies `HttpOnly` y `SameSite=Strict`. Como medidas de mitigación: no se usan librerías externas no auditadas ni `dangerouslySetInnerHTML`, las entradas de texto se validan, el token tiene expiración y `http.ts` borra las credenciales automáticamente si la API devuelve un error 401.
 
 ### 3. Códigos 401 vs 403
-- **401 Unauthorized:** Cuando no hay token o este no es válido. Ejemplo: consultar `GET /api/orders/mias` sin iniciar sesión.
-- **403 Forbidden:** Cuando el token es válido pero el usuario carece de permisos. Ejemplo: usuario con rol `USER` intentando acceder al panel de `/admin` o enviando `DELETE /api/products/:id`.
+- **401 Unauthorized:** Cuando no hay token o no es válido (el servidor no sabe quién eres).
+  *Ejemplo:* Entrar a `/mis-pedidos` sin haber iniciado sesión o con un token vencido.
+- **403 Forbidden:** Cuando el token es válido pero el usuario no tiene los permisos necesarios.
+  *Ejemplo:* Un usuario con rol `USER` intentando ingresar al panel `/admin` o intentando borrar un producto con `DELETE /api/products/1`.
 
-### 4. Uso de IA y correcciones
-- **Uso:** Diseño de interfaces responsivas con Tailwind CSS, esqueletos de componentes y estructuración de los hooks personalizados.
-- **Correcciones:** Envoltura obligatoria de componentes que usan `useSearchParams()` en boundaries de `<Suspense>` para habilitar prerenderizado estático en Next.js 16, corrección del cliente HTTP para manejar respuestas de error de Prisma y ajuste de selectores de tema oscuro/claro con `@custom-variant dark`.
+### 4. Uso de herramientas de IA y correcciones aplicadas
+- **Uso:** Apoyo para maquetar componentes en Tailwind CSS, crear la estructura inicial de carpetas y tipado de interfaces en TypeScript.
+- **Correcciones manuales:** Envolver en boundaries de `<Suspense>` las páginas que usan `useSearchParams()` (como login, registro y catálogo) para que el build de producción no fallara en Next.js 16, unificación del formato de respuesta `{ data }` para todas las llamadas del cliente HTTP y ajuste del manejo de errores visuales en los formularios.
 
 ---
 
-## 📸 Captura de Petición con Header Authorization
+## Inspección de red (Header Authorization)
+
+Captura de la pestaña Network verificando la inyección del header `Authorization: Bearer <token>` al consultar `/api/orders/mias`:
 
 ![Captura de Network en Google Chrome](../docs/network-authorization.png)
