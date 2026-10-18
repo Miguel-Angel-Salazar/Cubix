@@ -212,9 +212,13 @@ La base de datos se inicializa con los siguientes usuarios para evaluación:
 
 ## 📸 Inspección de Red (Network Header Authorization)
 
-Para comprobar la inyección automática del token JWT en peticiones protegidas:
-1. Inicia sesión como `user@cubix.com` en `/login`.
-2. Abre las herramientas de desarrollador (`F12`), pestaña **Network** (Red), y filtra por `Fetch/XHR`.
+A continuación se muestra la captura de la pestaña **Network** (Red) de las herramientas de desarrollador, evidenciando la inyección automática de la cabecera `Authorization: Bearer <token>` en una petición protegida (`GET /api/orders/mias`):
+
+![Captura de la pestaña Network con cabecera Authorization Bearer](docs/network-authorization.png)
+
+### Pasos para replicar la prueba en el navegador:
+1. Inicia sesión como `user@cubix.com` en `/login` (contraseña: `User123!`).
+2. Abre las herramientas de desarrollador (`F12`), ve a la pestaña **Network** (Red), y filtra por `Fetch/XHR`.
 3. Navega a **Mis Pedidos** (`/mis-pedidos`) o realiza una orden en la **Tienda**.
 4. Haz clic sobre la petición `GET /api/orders/mias` o `POST /api/orders`.
 5. En la sección **Request Headers** se evidencia la cabecera:
