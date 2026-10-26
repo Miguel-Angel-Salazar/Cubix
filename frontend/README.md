@@ -10,7 +10,8 @@ Migrada y expandida a partir del sitio web de la Entrega 1, manteniendo la temá
 
 - **Frontend en producción (Vercel):** [https://cubix-ruddy.vercel.app](https://cubix-ruddy.vercel.app)
 - **Backend API REST en producción (Render):** [https://cubix-api-v78n.onrender.com](https://cubix-api-v78n.onrender.com)
-- **Repositorio en GitHub:** [https://github.com/Miguel-Angel-Salazar/Cubix](https://github.com/Miguel-Angel-Salazar/Cubix)
+- **Repositorio Frontend en GitHub:** [https://github.com/Miguel-Angel-Salazar/Cubix](https://github.com/Miguel-Angel-Salazar/Cubix)
+- **Repositorio Backend en GitHub:** [https://github.com/Miguel-Angel-Salazar/backend_cubix](https://github.com/Miguel-Angel-Salazar/backend_cubix)
 
 ---
 
