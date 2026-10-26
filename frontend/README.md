@@ -14,7 +14,7 @@ Migrada y expandida a partir del sitio web de la Entrega 1, manteniendo la tem√°
 - **Repositorio Backend en GitHub:** [https://github.com/Miguel-Angel-Salazar/backend_cubix](https://github.com/Miguel-Angel-Salazar/backend_cubix)
 
 > [!NOTE]
-> **Aviso para la revisiÛn:** La API est· alojada en el plan gratuito de Render. Si no ha recibido tr·fico recientemente, el servidor entra en reposo y puede tardar entre 30 y 50 segundos en responder la primera peticiÛn mientras se activa la instancia. Se recomienda abrir primero el enlace de la API ([https://cubix-api-v78n.onrender.com](https://cubix-api-v78n.onrender.com)) para despertarlo antes de iniciar las pruebas en el frontend.
+> **Aviso para la revisi√≥n:** La API est√° alojada en el plan gratuito de Render. Si no ha recibido tr√°fico recientemente, el servidor entra en reposo y puede tardar entre 30 y 50 segundos en responder la primera petici√≥n mientras se activa la instancia. Se recomienda abrir primero el enlace de la API ([https://cubix-api-v78n.onrender.com](https://cubix-api-v78n.onrender.com)) para despertarlo antes de iniciar las pruebas en el frontend.
 
 ---
 
