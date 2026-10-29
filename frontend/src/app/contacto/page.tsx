@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import SiteHeader from "../site-header";
 import { Alert } from "../../features/common/components";
-import { submitContactMessage } from "../../features/contact/services/contact.service";
+import { useContact } from "../../features/contact/hooks/useContact";
 
 export default function ContactoPage() {
+  const { sendContactMessage } = useContact();
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [mensaje, setMensaje] = useState("");
@@ -61,7 +62,7 @@ export default function ContactoPage() {
     setIsSubmitting(true);
 
     try {
-      await submitContactMessage({
+      await sendContactMessage({
         nombre: nombre.trim(),
         correo: correo.trim(),
         mensaje: mensaje.trim(),

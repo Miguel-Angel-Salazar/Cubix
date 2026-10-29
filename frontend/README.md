@@ -55,7 +55,7 @@ frontend/
 │       ├── auth/               # Servicios, hooks de sesión (useAuth) y formularios de login/registro
 │       ├── products/           # Servicios, hooks de catálogo (useProducts) y tarjetas de productos
 │       ├── orders/             # Dominio, servicios, hooks y tarjetas de pedidos
-│       └── contact/            # Servicio del formulario de contacto
+│       └── contact/            # Hook y servicio del formulario de contacto
 ```
 
 ### Aspectos clave de la implementación:

@@ -9,7 +9,7 @@ import { ProductFilters } from "../../features/products/components/ProductFilter
 import { ProductGrid } from "../../features/products/components/ProductGrid";
 import { ProductCategory, Product } from "../../features/products/domain";
 import { useProducts } from "../../features/products/hooks/useProducts";
-import { OrderService } from "../../features/orders/services/order.service";
+import { useOrderMutations } from "../../features/orders/hooks/useOrderMutations";
 
 function parsePrice(value: string | null): number | undefined {
   if (!value) return undefined;
@@ -21,6 +21,7 @@ function TiendaContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isAuthenticated } = useAuth();
+  const { createOrder } = useOrderMutations();
 
   const requestedPage = Number(searchParams.get("page") || "1");
   const urlPage = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
@@ -130,7 +131,7 @@ function TiendaContent() {
     setIsOrdering(true);
     setOrderError(null);
     try {
-      await OrderService.create({
+      await createOrder({
         items: [
           {
             productId: selectedProduct.id,

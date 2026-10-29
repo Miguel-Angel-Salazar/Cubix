@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import SiteHeader from "../site-header";
 import { useAuth } from "../../features/auth/hooks/useAuth";
 import { useProducts } from "../../features/products/hooks/useProducts";
+import { useProductMutations } from "../../features/products/hooks/useProductMutations";
 import { useAllOrders } from "../../features/orders/hooks/useOrders";
 import { OrderCard } from "../../features/orders/components/OrderCard";
-import { ProductService } from "../../features/products/services/product.service";
 import { Alert, Button, Input, Modal, Spinner } from "../../features/common/components";
 import { Product, ProductCategory, CreateProductInput } from "../../features/products/domain";
 
@@ -39,11 +39,17 @@ export default function AdminPage() {
   const {
     products,
     isLoading: productsLoading,
+    isError: productsError,
+    error: productsErrorMessage,
     refetch: refetchProducts,
   } = useProducts({ limit: 50 });
-  const { orders, isLoading: ordersLoading } = useAllOrders(
-    !authLoading && isAuthenticated && isAdmin
-  );
+  const {
+    orders,
+    isLoading: ordersLoading,
+    error: ordersError,
+    refetch: refetchOrders,
+  } = useAllOrders(!authLoading && isAuthenticated && isAdmin);
+  const { createProduct, updateProduct, deleteProduct } = useProductMutations();
 
   // Estado para CRUD de productos
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -97,10 +103,10 @@ export default function AdminPage() {
     setFormError(null);
     try {
       if (editingProduct) {
-        await ProductService.update(editingProduct.id, formData);
+        await updateProduct(editingProduct.id, formData);
         setFormSuccess("Producto actualizado exitosamente.");
       } else {
-        await ProductService.create(formData);
+        await createProduct(formData);
         setFormSuccess("Producto creado exitosamente.");
       }
       refetchProducts();
@@ -119,7 +125,7 @@ export default function AdminPage() {
     if (!deleteTarget) return;
     setIsDeleting(true);
     try {
-      await ProductService.delete(deleteTarget.id);
+      await deleteProduct(deleteTarget.id);
       refetchProducts();
       setDeleteTarget(null);
     } catch (err: unknown) {
@@ -196,6 +202,13 @@ export default function AdminPage() {
               <div className="flex justify-center py-12">
                 <Spinner size="lg" />
               </div>
+            ) : productsError ? (
+              <Alert type="error" title="No se pudo cargar el catálogo">
+                <p>{productsErrorMessage}</p>
+                <Button className="mt-3" size="sm" onClick={() => void refetchProducts()}>
+                  Reintentar
+                </Button>
+              </Alert>
             ) : products.length === 0 ? (
               <Alert type="info">No hay productos en el catálogo.</Alert>
             ) : (
@@ -272,6 +285,13 @@ export default function AdminPage() {
               <div className="flex justify-center py-12">
                 <Spinner size="lg" />
               </div>
+            ) : ordersError ? (
+              <Alert type="error" title="No se pudieron cargar los pedidos">
+                <p>{ordersError}</p>
+                <Button className="mt-3" size="sm" onClick={() => void refetchOrders()}>
+                  Reintentar
+                </Button>
+              </Alert>
             ) : orders.length === 0 ? (
               <Alert type="info">No hay pedidos registrados en el sistema.</Alert>
             ) : (

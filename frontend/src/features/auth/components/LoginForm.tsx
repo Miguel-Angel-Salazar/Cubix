@@ -75,14 +75,23 @@ export function LoginForm() {
     } catch (err: unknown) {
       if (err instanceof ApiError) {
         if (err.statusCode === 401) {
-          // Credenciales incorrectas: no revela si falló email o password
-          setGeneralError(err.message || "Credenciales inválidas. Verifica tu correo y contraseña.");
+          const message = err.message || "Credenciales inválidas.";
+          setGeneralError(null);
           setFieldErrors({
-            email: "Verifica tu correo",
-            password: "O verifica tu contraseña",
+            email: message,
+            password: message,
           });
         } else if (err.statusCode === 400 && err.details) {
-          setGeneralError(err.message || "Por favor corrige los datos del formulario.");
+          const message = err.message || "Revisa los datos ingresados.";
+          const errors: AuthValidationErrors = {};
+          if (/correo|email/i.test(message)) errors.email = message;
+          if (/contraseña|password/i.test(message)) errors.password = message;
+          if (Object.keys(errors).length > 0) {
+            setGeneralError(null);
+            setFieldErrors(errors);
+          } else {
+            setGeneralError(message);
+          }
         } else {
           setGeneralError(err.message);
         }

@@ -93,7 +93,17 @@ export function RegisterForm() {
             email: "Este correo electrónico ya está registrado. Prueba iniciando sesión.",
           });
         } else if (err.statusCode === 400 && err.details) {
-          setGeneralError(err.message || "Por favor verifica los datos ingresados.");
+          const message = err.message || "Revisa los datos ingresados.";
+          const errors: AuthValidationErrors = {};
+          if (/nombre|name/i.test(message)) errors.name = message;
+          if (/correo|email/i.test(message)) errors.email = message;
+          if (/contraseña|password/i.test(message)) errors.password = message;
+          if (Object.keys(errors).length > 0) {
+            setGeneralError(null);
+            setFieldErrors(errors);
+          } else {
+            setGeneralError(message);
+          }
         } else {
           setGeneralError(err.message);
         }
