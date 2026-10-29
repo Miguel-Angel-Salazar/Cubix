@@ -24,15 +24,6 @@ El repositorio está organizado con separación entre frontend y backend:
 
 ```text
 Cubix/
-├── backend/               # API REST con Express, TypeScript y Prisma
-│   ├── prisma/            # Esquema de base de datos, migraciones y seed
-│   ├── src/
-│   │   ├── domain/        # Entidades del dominio e interfaces de repositorios
-│   │   ├── application/   # Servicios con la lógica de negocio (Auth, Products, Orders)
-│   │   ├── infrastructure/# Configuración de Prisma y acceso a base de datos
-│   │   └── interface/     # Controladores, rutas de Express y middlewares
-│   └── tests/             # Pruebas automatizadas de middlewares
-│
 ├── frontend/              # Aplicación web en Next.js (App Router)
 │   ├── public/images/     # Fotos e imágenes de los cubos
 │   └── src/
@@ -42,6 +33,8 @@ Cubix/
 ├── css/, img/, js/        # Archivos originales de la Entrega 1 (conservados como histórico)
 └── *.html                 # Páginas HTML de la Entrega 1
 ```
+
+El backend se mantiene en un repositorio independiente: [backend_cubix](https://github.com/Miguel-Angel-Salazar/backend_cubix).
 
 ---
 
@@ -79,39 +72,9 @@ La base de datos se inicializa con dos usuarios de prueba para poder evaluar los
 - Node.js (v18 o superior)
 - PostgreSQL (puede ser local o una base de datos en la nube como Supabase o Neon)
 
-### 1. Configurar el Backend
+### 1. Backend API
 
-1. Entra a la carpeta del backend e instala dependencias:
-   ```bash
-   cd backend
-   npm install
-   ```
-2. Crea el archivo `.env` a partir del ejemplo:
-   ```bash
-   cp .env.example .env
-   ```
-3. Configura tus variables en `.env`:
-   ```env
-   PORT=4000
-   DATABASE_URL="postgresql://usuario:password@localhost:5432/cubix_db?schema=public"
-   JWT_SECRET="cubix_super_secret_jwt_key_2026_dev"
-   JWT_EXPIRES_IN="7d"
-   FRONTEND_URL="http://localhost:3000"
-   ```
-4. Corre las migraciones de Prisma y carga los datos de prueba:
-   ```bash
-   npx prisma migrate dev --name init
-   npm run seed
-   ```
-5. Ejecuta las pruebas unitarias:
-   ```bash
-   npm test
-   ```
-6. Inicia el servidor en modo desarrollo:
-   ```bash
-   npm run dev
-   # El backend quedará escuchando en http://localhost:4000
-   ```
+El backend tiene su propio repositorio y sus instrucciones de instalación, variables de entorno, migraciones y pruebas en [backend_cubix](https://github.com/Miguel-Angel-Salazar/backend_cubix). Para desarrollo local, ejecuta ese proyecto por separado y configura `FRONTEND_URL` para permitir el origen del frontend.
 
 ### 2. Configurar el Frontend
 
