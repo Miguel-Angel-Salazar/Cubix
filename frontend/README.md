@@ -48,18 +48,19 @@ frontend/
 │   │   ├── mis-pedidos/page.tsx# Historial de compras (/mis-pedidos - Protegida)
 │   │   ├── admin/page.tsx      # Panel de administración (/admin - Protegida ADMIN)
 │   │   ├── not-found.tsx       # Error 404 personalizado
-│   │   └── layout.tsx          # Navbar, Footer y ThemeProvider
+│   │   └── layout.tsx          # Layout global y estilos
 │   │
 │   └── features/               # Módulos por dominio
-│       ├── common/             # Cliente HTTP (http.ts), componentes compartidos (Navbar, Footer, Modales)
+│       ├── common/             # Cliente HTTP (http.ts) y componentes compartidos
 │       ├── auth/               # Servicios, hooks de sesión (useAuth) y formularios de login/registro
 │       ├── products/           # Servicios, hooks de catálogo (useProducts) y tarjetas de productos
-│       └── orders/             # Servicios y componentes de pedidos y órdenes
+│       ├── orders/             # Dominio, servicios, hooks y tarjetas de pedidos
+│       └── contact/            # Servicio del formulario de contacto
 ```
 
 ### Aspectos clave de la implementación:
 - **Cliente HTTP (`http.ts`):** Centraliza las llamadas a la API, agrega automáticamente el token Bearer y, si la API responde 401, limpia la sesión y redirige al login.
-- **Servicios dedicados:** Los componentes no hacen `fetch` directo; toda la comunicación pasa por los servicios de cada módulo (`AuthService`, `ProductService`, `OrderService`).
+- **Servicios dedicados:** Las páginas y componentes no llaman a `fetch` directamente; la comunicación pasa por los servicios de autenticación, productos, pedidos y contacto.
 - **Estados de carga:** En la tienda y en los pedidos se manejan estados claros para carga, listas vacías y errores con opción de reintentar.
 
 ---
@@ -117,7 +118,7 @@ npm run dev
 1. El usuario completa el formulario en `/login` con su email y clave.
 2. `LoginForm` valida los campos y llama a `AuthService.login({ email, password })`.
 3. El backend valida el hash con bcrypt, genera el JWT con `{ id, role }` y responde con código 200 y el token.
-4. El frontend guarda el token en `localStorage` (`cubix_token`) y actualiza el estado del `AuthProvider`.
+4. El frontend guarda el token en `localStorage` (`cubix_token`) y `useAuth` actualiza el estado de sesión.
 5. Al acceder a `/mis-pedidos`, el hook `useMyOrders` invoca a `OrderService.getMyOrders()`.
 6. El cliente HTTP (`http.ts`) intercepta la petición y añade automáticamente el encabezado `Authorization: Bearer <token>`.
 7. El backend valida el token, extrae el `id` y devuelve los pedidos pertenecientes a ese usuario con código 200.

@@ -6,6 +6,7 @@ import SiteHeader from "../site-header";
 import { useAuth } from "../../features/auth/hooks/useAuth";
 import { useProducts } from "../../features/products/hooks/useProducts";
 import { useAllOrders } from "../../features/orders/hooks/useOrders";
+import { OrderCard } from "../../features/orders/components/OrderCard";
 import { ProductService } from "../../features/products/services/product.service";
 import { Alert, Button, Input, Modal, Spinner } from "../../features/common/components";
 import { Product, ProductCategory, CreateProductInput } from "../../features/products/domain";
@@ -40,7 +41,9 @@ export default function AdminPage() {
     isLoading: productsLoading,
     refetch: refetchProducts,
   } = useProducts({ limit: 50 });
-  const { orders, isLoading: ordersLoading } = useAllOrders();
+  const { orders, isLoading: ordersLoading } = useAllOrders(
+    !authLoading && isAuthenticated && isAdmin
+  );
 
   // Estado para CRUD de productos
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -133,21 +136,6 @@ export default function AdminPage() {
       maximumFractionDigits: 0,
     }).format(price);
 
-  const statusLabels: Record<string, { text: string; className: string }> = {
-    PENDING: {
-      text: "Pendiente",
-      className: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
-    },
-    CONFIRMED: {
-      text: "Confirmado",
-      className: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
-    },
-    CANCELLED: {
-      text: "Cancelado",
-      className: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-300",
-    },
-  };
-
   return (
     <>
       <SiteHeader />
@@ -164,7 +152,6 @@ export default function AdminPage() {
           </p>
         </section>
 
-        {/* Tabs */}
         <div className="flex justify-center gap-2 mb-8">
           <button
             type="button"
@@ -194,7 +181,6 @@ export default function AdminPage() {
           <Alert type="error" className="mb-4">{formError}</Alert>
         )}
 
-        {/* ──── Tab de Productos ──── */}
         {activeTab === "products" && (
           <section>
             <div className="flex items-center justify-between mb-6">
@@ -290,53 +276,9 @@ export default function AdminPage() {
               <Alert type="info">No hay pedidos registrados en el sistema.</Alert>
             ) : (
               <div className="flex flex-col gap-4">
-                {orders.map((order) => {
-                  const status = statusLabels[order.status] || statusLabels.PENDING;
-                  return (
-                    <article
-                      key={order.id}
-                      className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm"
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                        <div>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                            Pedido: {order.id.slice(0, 12)}...
-                          </p>
-                          <p className="text-xs text-slate-500 dark:text-slate-400">
-                            Usuario: {order.user?.name || order.user?.email || order.userId.slice(0, 12)}
-                          </p>
-                          <p className="text-xs text-slate-400 dark:text-slate-500">
-                            {new Date(order.createdAt).toLocaleDateString("es-CO", {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            })}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span className={`px-3 py-1 rounded-full text-xs font-bold ${status.className}`}>
-                            {status.text}
-                          </span>
-                          <span className="text-lg font-black text-blue-600 dark:text-blue-400">
-                            {formattedPrice(order.totalCop)}
-                          </span>
-                        </div>
-                      </div>
-                      {order.items && order.items.length > 0 && (
-                        <ul className="text-xs text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-3 space-y-1">
-                          {order.items.map((item) => (
-                            <li key={item.id} className="flex justify-between">
-                              <span>{item.product?.name || item.productId.slice(0, 8)} × {item.quantity}</span>
-                              <span>{formattedPrice(item.unitPriceCop * item.quantity)}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </article>
-                  );
-                })}
+                {orders.map((order) => (
+                  <OrderCard key={order.id} order={order} showBuyer />
+                ))}
               </div>
             )}
           </section>

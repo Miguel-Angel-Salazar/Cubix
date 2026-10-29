@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import SiteHeader from "../site-header";
 import { Alert } from "../../features/common/components";
+import { submitContactMessage } from "../../features/contact/services/contact.service";
 
 export default function ContactoPage() {
   const [nombre, setNombre] = useState("");
@@ -17,6 +18,7 @@ export default function ContactoPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
 
   const validate = () => {
     const newErrors: {
@@ -50,6 +52,7 @@ export default function ContactoPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSuccessMessage(null);
+    setSubmissionError(null);
 
     if (!validate()) {
       return;
@@ -58,46 +61,22 @@ export default function ContactoPage() {
     setIsSubmitting(true);
 
     try {
-      // Envío mediante Formspree de Entrega 1 o simulación confiable
-      const res = await fetch("https://formspree.io/f/mqaejnbk", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          nombre: nombre.trim(),
-          correo: correo.trim(),
-          mensaje: mensaje.trim(),
-        }),
+      await submitContactMessage({
+        nombre: nombre.trim(),
+        correo: correo.trim(),
+        mensaje: mensaje.trim(),
       });
-
-      if (res.ok) {
-        setSuccessMessage(
-          "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo lo más pronto posible."
-        );
-        setNombre("");
-        setCorreo("");
-        setMensaje("");
-        setErrors({});
-      } else {
-        setSuccessMessage(
-          "¡Mensaje procesado correctamente! Formulario validado con éxito."
-        );
-        setNombre("");
-        setCorreo("");
-        setMensaje("");
-        setErrors({});
-      }
-    } catch {
-      // Fallback seguro en entornos sin salida externa o local
-      setSuccessMessage(
-        "¡Mensaje registrado con éxito! Estaremos en contacto contigo pronto."
-      );
+      setSuccessMessage("¡Mensaje enviado! Nos pondremos en contacto contigo pronto.");
       setNombre("");
       setCorreo("");
       setMensaje("");
       setErrors({});
+    } catch (error: unknown) {
+      setSubmissionError(
+        error instanceof Error
+          ? error.message
+          : "No fue posible enviar el mensaje. Inténtalo de nuevo."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -126,6 +105,13 @@ export default function ContactoPage() {
             <div className="mb-6">
               <Alert type="success" title="Mensaje Enviado">
                 {successMessage}
+              </Alert>
+            </div>
+          )}
+          {submissionError && (
+            <div className="mb-6">
+              <Alert type="error" title="No se pudo enviar el mensaje">
+                {submissionError}
               </Alert>
             </div>
           )}

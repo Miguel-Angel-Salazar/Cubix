@@ -24,8 +24,6 @@ export function useProducts(initialFilters: UseProductsOptions = {}) {
 
   const fetchProducts = useCallback(
     async (currentFilters: ProductFilters = filters) => {
-      setIsLoading(true);
-      setError(null);
       try {
         const response = await ProductService.getAll(currentFilters);
         setProducts(response.data);
@@ -45,10 +43,12 @@ export function useProducts(initialFilters: UseProductsOptions = {}) {
   );
 
   useEffect(() => {
-    fetchProducts(filters);
+    void Promise.resolve().then(() => fetchProducts(filters));
   }, [filters, fetchProducts]);
 
   const updateFilters = useCallback((newFilters: Partial<ProductFilters>) => {
+    setIsLoading(true);
+    setError(null);
     setFilters((prev) => ({
       ...prev,
       ...newFilters,
@@ -58,8 +58,16 @@ export function useProducts(initialFilters: UseProductsOptions = {}) {
   }, []);
 
   const setPage = useCallback((newPage: number) => {
+    setIsLoading(true);
+    setError(null);
     setFilters((prev) => ({ ...prev, page: newPage }));
   }, []);
+
+  const refetch = useCallback(() => {
+    setIsLoading(true);
+    setError(null);
+    return fetchProducts(filters);
+  }, [fetchProducts, filters]);
 
   return {
     products,
@@ -70,6 +78,6 @@ export function useProducts(initialFilters: UseProductsOptions = {}) {
     filters,
     setFilters: updateFilters,
     setPage,
-    refetch: () => fetchProducts(filters),
+    refetch,
   };
 }

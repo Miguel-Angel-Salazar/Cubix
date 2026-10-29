@@ -61,7 +61,10 @@ export function useAuth(): UseAuthReturn {
   }, []);
 
   useEffect(() => {
-    loadSession();
+    let active = true;
+    Promise.resolve().then(() => {
+      if (active) loadSession();
+    });
 
     const handleAuthChange = () => {
       loadSession();
@@ -71,6 +74,7 @@ export function useAuth(): UseAuthReturn {
     window.addEventListener("storage", handleAuthChange);
 
     return () => {
+      active = false;
       window.removeEventListener("cubix-auth-change", handleAuthChange);
       window.removeEventListener("storage", handleAuthChange);
     };

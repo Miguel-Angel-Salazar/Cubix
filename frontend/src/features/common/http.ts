@@ -28,8 +28,6 @@ export function setStoredToken(token: string | null): void {
   }
   if (token) {
     localStorage.setItem(TOKEN_STORAGE_KEY, token);
-    // Guardar en cookie para que middleware/servidor de Next.js pueda leerla si aplica
-    document.cookie = `${TOKEN_STORAGE_KEY}=${token}; path=/; max-age=86400; SameSite=Lax`;
   } else {
     localStorage.removeItem(TOKEN_STORAGE_KEY);
     localStorage.removeItem(USER_STORAGE_KEY);
@@ -108,7 +106,7 @@ export async function httpClient<T = unknown>(
       // Si no estamos ya en /login, redirigir
       if (!window.location.pathname.startsWith("/login")) {
         const returnUrl = encodeURIComponent(window.location.pathname + window.location.search);
-        window.location.href = `/login?redirect=${returnUrl}`;
+        window.location.replace(`/login?redirect=${returnUrl}`);
       }
     }
     const errorData = await response.json().catch(() => null);

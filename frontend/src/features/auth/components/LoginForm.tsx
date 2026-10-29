@@ -7,11 +7,12 @@ import { Alert, Button, Input } from "../../common/components";
 import { ApiError } from "../../common/http";
 import { AuthValidationErrors } from "../domain";
 import { useAuth } from "../hooks/useAuth";
+import { getSafeRedirect } from "../utils/safeRedirect";
 
 export function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectUrl = searchParams.get("redirect") || "/";
+  const redirectUrl = getSafeRedirect(searchParams.get("redirect"));
 
   const { login } = useAuth();
 

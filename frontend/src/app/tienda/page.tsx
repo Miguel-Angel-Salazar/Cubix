@@ -5,21 +5,33 @@ import React, { Suspense, useEffect, useState } from "react";
 import SiteHeader from "../site-header";
 import { Alert, Modal, Pagination } from "../../features/common/components";
 import { useAuth } from "../../features/auth/hooks/useAuth";
-import { ProductCard } from "../../features/products/components/ProductCard";
 import { ProductFilters } from "../../features/products/components/ProductFilters";
 import { ProductGrid } from "../../features/products/components/ProductGrid";
 import { ProductCategory, Product } from "../../features/products/domain";
 import { useProducts } from "../../features/products/hooks/useProducts";
 import { OrderService } from "../../features/orders/services/order.service";
 
+function parsePrice(value: string | null): number | undefined {
+  if (!value) return undefined;
+  const price = Number(value);
+  return Number.isFinite(price) && price >= 0 ? price : undefined;
+}
+
 function TiendaContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isAuthenticated } = useAuth();
 
-  const urlPage = Number(searchParams.get("page") || "1");
-  const urlCategory = (searchParams.get("categoria")?.toUpperCase() as ProductCategory) || undefined;
+  const requestedPage = Number(searchParams.get("page") || "1");
+  const urlPage = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+  const categoryParam = searchParams.get("categoria")?.toUpperCase();
+  const urlCategory: ProductCategory | undefined =
+    categoryParam === "CUBOS" || categoryParam === "PUZZLES" || categoryParam === "ACCESORIOS"
+      ? categoryParam
+      : undefined;
   const urlSearch = searchParams.get("q") || undefined;
+  const urlMinPrice = parsePrice(searchParams.get("minPrice"));
+  const urlMaxPrice = parsePrice(searchParams.get("maxPrice"));
 
   const {
     products,
@@ -29,14 +41,41 @@ function TiendaContent() {
     error,
     filters,
     setFilters,
-    setPage,
     refetch,
   } = useProducts({
     page: urlPage,
     limit: 6,
     category: urlCategory,
     search: urlSearch,
+    minPrice: urlMinPrice,
+    maxPrice: urlMaxPrice,
   });
+
+  useEffect(() => {
+    if (
+      filters.page !== urlPage ||
+      filters.category !== urlCategory ||
+      filters.search !== urlSearch ||
+      filters.minPrice !== urlMinPrice ||
+      filters.maxPrice !== urlMaxPrice
+    ) {
+      setFilters({
+        page: urlPage,
+        category: urlCategory,
+        search: urlSearch,
+        minPrice: urlMinPrice,
+        maxPrice: urlMaxPrice,
+      });
+    }
+  }, [
+    filters,
+    setFilters,
+    urlCategory,
+    urlMaxPrice,
+    urlMinPrice,
+    urlPage,
+    urlSearch,
+  ]);
 
   // Estado para el modal de compra / pedido rápido
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -47,23 +86,28 @@ function TiendaContent() {
 
   // Sincronizar cambios en los filtros con la URL
   const handleFilterChange = (newFilters: Parameters<typeof setFilters>[0]) => {
-    setFilters(newFilters);
+    const nextFilters = { ...filters, ...newFilters, page: 1 };
     const params = new URLSearchParams();
-    if (newFilters.page && newFilters.page > 1) {
-      params.set("page", String(newFilters.page));
+    if (nextFilters.page > 1) {
+      params.set("page", String(nextFilters.page));
     }
-    if (newFilters.category) {
-      params.set("categoria", newFilters.category.toLowerCase());
+    if (nextFilters.category) {
+      params.set("categoria", nextFilters.category.toLowerCase());
     }
-    if (newFilters.search) {
-      params.set("q", newFilters.search);
+    if (nextFilters.search) {
+      params.set("q", nextFilters.search);
+    }
+    if (nextFilters.minPrice !== undefined) {
+      params.set("minPrice", String(nextFilters.minPrice));
+    }
+    if (nextFilters.maxPrice !== undefined) {
+      params.set("maxPrice", String(nextFilters.maxPrice));
     }
     const query = params.toString();
     router.push(`/tienda${query ? `?${query}` : ""}`);
   };
 
   const handlePageChange = (newPage: number) => {
-    setPage(newPage);
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", String(newPage));
     router.push(`/tienda?${params.toString()}`);
@@ -136,6 +180,7 @@ function TiendaContent() {
 
         {/* Filtros combinados */}
         <ProductFilters
+          key={searchParams.toString()}
           currentFilters={filters}
           onFilterChange={handleFilterChange}
         />
